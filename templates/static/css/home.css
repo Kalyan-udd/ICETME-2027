@@ -52,3 +52,85 @@
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(90deg, #003ec7, #0052ff, #005569);
 }
+
+
+
+
+
+
+
+/* ==========================================================================
+   ICETME-2027 | Premium Custom Styles (Paired with Tailwind)
+   ========================================================================== */
+
+/* --- Base & Scrollbar --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Premium Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f7f9fb; /* surface */
+}
+::-webkit-scrollbar-thumb {
+    background: #c3c5d9; /* outline-variant */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #737688; /* outline */
+}
+
+/* --- Typography Utilities --- */
+.gradient-text {
+    /* Signature CTAs: Gradient from primary to primary_container */
+    background: linear-gradient(135deg, #003ec7, #0052ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* --- Glassmorphism Components --- */
+.glass-card {
+    /* Tier 2: surface_container_lowest @ 70% opacity + backdrop-blur */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* Ghost Border Fallback: outline-variant @ 15% */
+    border: 1px solid rgba(195, 197, 217, 0.15);
+    
+    /* Subtle inner glow to simulate light hitting a lens */
+    box-shadow: inset 0 1px 0 rgba(221, 225, 255, 0.5); /* primary_fixed tint */
+}
+
+/* --- Motion & Transitions (The "Oiled" Feel) --- */
+.oiled-transition {
+    /* Sub-pixel motion: cubic-bezier for an expensive feel */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    /* Lift and scale slightly (1.02x) */
+    transform: translateY(-4px) scale(1.02);
+    
+    /* Shift ghost border opacity from 15% to 40% on hover */
+    border-color: rgba(195, 197, 217, 0.40);
+    
+    /* Ambient Shadow using on-surface (#191c1e) at 8% opacity */
+    box-shadow: 0 32px 64px rgba(25, 28, 30, 0.08);
+}
+
+/* --- Custom Backgrounds --- */
+.hero-mesh {
+    /* Optional: A very subtle dot mesh for the hero background */
+    background-image: radial-gradient(rgba(195, 197, 217, 0.2) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
