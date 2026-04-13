@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="scroll-smooth scroll-pt-32" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Registration | ICETME–2027</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                  "primary": "#003ec7",
+                  "primary-container": "#0052ff",
+                  "on-primary": "#ffffff",
+                  "on-primary-container": "#dfe3ff",
+                  "primary-fixed": "#dde1ff",
+                  "on-primary-fixed": "#001452",
+                  "surface": "#f7f9fb",
+                  "on-surface": "#191c1e",
+                  "surface-variant": "#e0e3e5",
+                  "on-surface-variant": "#434656",
+                  "outline": "#737688",
+                  "outline-variant": "#c3c5d9",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-container-low": "#f2f4f6",
+                  "surface-container": "#eceef0",
+                  "surface-container-high": "#e6e8ea",
+                  "background": "#f7f9fb",
+                  "on-background": "#191c1e",
+              },
+              fontFamily: {
+                  "headline": ["Space Grotesk", "sans-serif"],
+                  "body": ["Inter", "sans-serif"]
+              }
+            }
+          }
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(195, 197, 217, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #003ec7, #0052ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* The signature oiled transition */
+        .oiled-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+<nav class="glass-card rounded-full sticky top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-8 py-4 transition-all duration-300">
+    <div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
+        <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+        ICETME–2027
+    </div>
+    
+    <div class="hidden lg:flex gap-8">
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="index.html">Home</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="index.html#about">About</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="index.html#papers">Call for Papers</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="#">Registration</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#contact">Contact</a>
+    </div>
+    
+    <button class="lg:hidden text-primary focus:outline-none">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+</nav>
+
+<header class="container mx-auto px-6 max-w-7xl pt-32 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-7">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">Delegate Portal</span>
+            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-background leading-tight">
+                Secure Your <br><span class="gradient-text">Attendance.</span>
+            </h1>
+        </div>
+        <div class="lg:col-span-5 pb-4">
+            <p class="text-on-surface-variant text-lg leading-relaxed font-medium">
+                Join the Department of Mechanical Engineering at NIT Agartala for the First International Conference on Emerging Trends in Mechanical Engineering. We invite you to join our global discourse in hybrid mode during 19–21 February 2027.
+            </p>
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-6 max-w-7xl pb-32">
+    <section class="bg-surface-container-lowest rounded-[2.5rem] p-8 md:p-16 shadow-[0_32px_64px_rgba(25,28,30,0.04)] border border-outline-variant/30 oiled-transition hover:shadow-[0_40px_80px_rgba(25,28,30,0.06)]">
+        
+        <div class="mb-16">
+            <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-3 text-on-background tracking-tight">Registration Tiers</h2>
+            <p class="text-on-surface-variant font-medium">Standard fees apply after <span class="font-bold text-on-background">15/09/2026</span>. Fees cover technical sessions, conference kit, and dining.</p>
+        </div>
+
+        <div class="flex flex-col gap-4 mb-16">
+            
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-6 gap-6 border-b border-outline-variant/10">
+                <div>
+                    <h3 class="font-headline text-2xl font-bold text-on-background">Indian Scholars</h3>
+                    <p class="text-sm text-on-surface-variant mt-1 font-medium">Students & PhD Candidates</p>
+                </div>
+                <div class="flex gap-8 bg-surface-container-low p-6 rounded-2xl w-full lg:w-auto items-center">
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Early Bird</span>
+                        <span class="font-headline text-2xl font-extrabold gradient-text">₹4,000</span>
+                    </div>
+                    <div class="w-px h-10 bg-outline-variant/30"></div>
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Standard</span>
+                        <span class="font-headline text-2xl font-bold text-on-background">₹5,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-6 gap-6 border-b border-outline-variant/10">
+                <div>
+                    <h3 class="font-headline text-2xl font-bold text-on-background">Global Scholars</h3>
+                    <p class="text-sm text-on-surface-variant mt-1 font-medium">International Students</p>
+                </div>
+                <div class="flex gap-8 bg-surface-container-low p-6 rounded-2xl w-full lg:w-auto items-center">
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Early Bird</span>
+                        <span class="font-headline text-2xl font-extrabold gradient-text">$100</span>
+                    </div>
+                    <div class="w-px h-10 bg-outline-variant/30"></div>
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Standard</span>
+                        <span class="font-headline text-2xl font-bold text-on-background">$150</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-6 gap-6 border-b border-outline-variant/10">
+                <div>
+                    <h3 class="font-headline text-2xl font-bold text-on-background">Academicians</h3>
+                    <p class="text-sm text-on-surface-variant mt-1 font-medium">Faculty & Researchers (India)</p>
+                </div>
+                <div class="flex gap-8 bg-surface-container-low p-6 rounded-2xl w-full lg:w-auto items-center">
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Early Bird</span>
+                        <span class="font-headline text-2xl font-extrabold gradient-text">₹7,000</span>
+                    </div>
+                    <div class="w-px h-10 bg-outline-variant/30"></div>
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Standard</span>
+                        <span class="font-headline text-2xl font-bold text-on-background">₹8,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-6 gap-6 border-b border-outline-variant/10">
+                <div>
+                    <h3 class="font-headline text-2xl font-bold text-on-background">Global Academicians</h3>
+                    <p class="text-sm text-on-surface-variant mt-1 font-medium">Faculty & Researchers (International)</p>
+                </div>
+                <div class="flex gap-8 bg-surface-container-low p-6 rounded-2xl w-full lg:w-auto items-center">
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Early Bird</span>
+                        <span class="font-headline text-2xl font-extrabold gradient-text">$200</span>
+                    </div>
+                    <div class="w-px h-10 bg-outline-variant/30"></div>
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Standard</span>
+                        <span class="font-headline text-2xl font-bold text-on-background">$300</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-6 gap-6 border-b border-outline-variant/10">
+                <div>
+                    <h3 class="font-headline text-2xl font-bold text-on-background">Industry Participants</h3>
+                    <p class="text-sm text-on-surface-variant mt-1 font-medium">Corporate Delegates (India)</p>
+                </div>
+                <div class="flex gap-8 bg-surface-container-low p-6 rounded-2xl w-full lg:w-auto items-center">
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Early Bird</span>
+                        <span class="font-headline text-2xl font-extrabold gradient-text">₹10,000</span>
+                    </div>
+                    <div class="w-px h-10 bg-outline-variant/30"></div>
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Standard</span>
+                        <span class="font-headline text-2xl font-bold text-on-background">₹11,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-6 gap-6">
+                <div>
+                    <h3 class="font-headline text-2xl font-bold text-on-background">Global Industry</h3>
+                    <p class="text-sm text-on-surface-variant mt-1 font-medium">Corporate Delegates (International)</p>
+                </div>
+                <div class="flex gap-8 bg-surface-container-low p-6 rounded-2xl w-full lg:w-auto items-center">
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Early Bird</span>
+                        <span class="font-headline text-2xl font-extrabold gradient-text">$300</span>
+                    </div>
+                    <div class="w-px h-10 bg-outline-variant/30"></div>
+                    <div class="flex flex-col gap-1 w-24">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant/70">Standard</span>
+                        <span class="font-headline text-2xl font-bold text-on-background">$400</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="bg-surface-container-high p-8 rounded-3xl border border-transparent hover:border-outline-variant/30 oiled-transition hover:scale-[1.01]">
+                <h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-3 flex items-center gap-2 text-on-background">
+                    <span class="material-symbols-outlined text-primary text-xl">group</span> Group Benefit
+                </h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed font-medium">1 complimentary registration is provided for groups of 5 participants registering from the same affiliation.</p>
+            </div>
+            
+            <div class="bg-surface-container-high p-8 rounded-3xl border border-transparent hover:border-outline-variant/30 oiled-transition hover:scale-[1.01]">
+                <h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-3 flex items-center gap-2 text-on-background">
+                    <span class="material-symbols-outlined text-primary text-xl">library_books</span> Additional Papers
+                </h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed font-medium">An individual participant submitting an additional paper will receive a 25% waiver on the registration fee for each subsequent paper.</p>
+            </div>
+        </div>
+
+        <div class="text-sm font-medium text-red-600/80 bg-red-50 p-4 rounded-xl mb-10 border border-red-100">
+            <strong>** Note:</strong> Registration Fees are non-refundable under any circumstances.
+        </div>
+
+        <div class="flex justify-end pt-8 border-t border-outline-variant/10">
+            <button class="px-10 py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-lg shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group cursor-not-allowed opacity-80" disabled>
+                Link Coming Soon <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">lock</span>
+            </button>
+        </div>
+
+    </section>
+</main>
+
+<footer id="contact" class="bg-slate-900 text-slate-300 w-full pt-20 pb-8 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-0"></div>
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="lg:col-span-1">
+                <div class="text-2xl font-extrabold tracking-tighter text-white font-headline mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+                    ICETME–2027
+                </div>
+                <p class="text-sm leading-relaxed mb-6 opacity-80">
+                    Advancing mechanical engineering through global dialogue, innovation, and interdisciplinary research at NIT Agartala.
+                </p>
+            </div>
+            
+            <div>
+                <h5 class="font-headline font-bold text-white mb-6 uppercase tracking-wider text-sm">Quick Links</h5>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="index.html#about" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-xs">chevron_right</span> About</a></li>
+                    <li><a href="index.html#dates" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-xs">chevron_right</span> Important Dates</a></li>
+                    <li><a href="index.html#papers" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-xs">chevron_right</span> Call for Papers</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-headline font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact Information</h5>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
+                        <span>Department of Mechanical Engineering,<br>NIT Agartala,<br>Tripura (W), Pin - 799046, India</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">mail</span>
+                        <span>icetme2027@nita.ac.in</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-headline font-bold text-white mb-6 uppercase tracking-wider text-sm">Location</h5>
+                <div class="rounded-xl overflow-hidden h-32 relative group">
+                    <div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="University Campus" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110">
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60">
+            <p>© 2027 ICETME. Department of Mechanical Engineering, NIT Agartala.</p>
+            <div class="flex gap-6">
+                <span>Designed for Academic Excellence</span>
+                <span>Hybrid Mode</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
