@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth scroll-pt-32" lang="en">
+<html class="scroll-smooth scroll-pt-8" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -79,20 +79,21 @@
 
 <!-- Navigation -->
 <nav class="glass-card rounded-full sticky top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-8 py-4 transition-all duration-300">
+    <a href="{{url_for('home')}}">
     <div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
         <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
         ICETME–2027
-    </div>
+    </div></a>
     
     <!-- Desktop Menu -->
     <div class="hidden lg:flex gap-8">
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#home">Home</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#about">About</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#advisory">Advisory Board</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#dates">Important Dates</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#papers">Call for Papers</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#committee">Committee</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#contact">Contact</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('register')}}">Registration</a>
     </div>
     
     <!-- Mobile Menu Button (Hidden on Desktop) -->
@@ -111,7 +112,6 @@
     </div>
 
     <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
-        
         <div>
             <br>
             <br>
@@ -155,7 +155,7 @@
         </div>
         
         <div class="flex flex-col sm:flex-row justify-center gap-5 animate-fade-in-up" style="animation-delay: 0.4s;">
-            <a href="#papers" class="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center gap-2">
+            <a href="{{url_for('register')}}" class="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center gap-2">
                 <span class="relative z-10 flex items-center gap-2">Registration <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
             </a>
             <a href="#about" class="px-8 py-4 glass-card text-on-surface rounded-full font-headline font-bold text-lg hover:bg-white transition-colors duration-300 flex items-center gap-2 group">
