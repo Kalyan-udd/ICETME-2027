@@ -11,7 +11,3 @@ templates = Jinja2Templates(directory='templates')
 @app.get("/")
 async def home(request: Request):
     return templates.TemplateResponse(request, "home.html")
-
-@app.post("/")
-async def registration(request: Request):
-    return templates.TemplateResponse(request, "registration.html")
