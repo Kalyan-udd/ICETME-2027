@@ -4,10 +4,14 @@ from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-app.mount("/templates/static", StaticFiles(directory="./templates/static"), name='static')
+app.mount("/static", StaticFiles(directory="static"), name='static')
 
 templates = Jinja2Templates(directory='templates')
 
 @app.get("/")
 async def home(request: Request):
     return templates.TemplateResponse(request, "home.html")
+
+@app.get("/registration")
+async def register(request: Request):
+    return templates.TemplateResponse(request, "registration.html")
