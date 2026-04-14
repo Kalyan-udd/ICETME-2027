@@ -16,6 +16,7 @@ async def home(request: Request):
 async def register(request: Request):
     return templates.TemplateResponse(request, "registration.html")
 
-@app.get("/about”)
-async def about(request: Request):
-    return templates.TemplateResponse(request, "about.html”).
+@app.get("/about")
+async def about_page(request: Request):
+    # This tells FastAPI to look inside your 'templates' folder and serve about.html
+    return templates.TemplateResponse("about.html", {"request": request})
