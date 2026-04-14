@@ -16,6 +16,3 @@ async def home(request: Request):
 async def register(request: Request):
     return templates.TemplateResponse(request, "registration.html")
 
-@app.get("/about")
-async def about(request: Request):
-    return templates.TemplateResponse(request, "about.html")
