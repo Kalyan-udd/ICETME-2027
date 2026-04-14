@@ -42,21 +42,19 @@
           }
         }
     </script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/css/about.css">
 </head>
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 <nav class="glass-card rounded-full sticky top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-8 py-4 transition-all duration-300">
-    <div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
+    <a href="{{url_for('home')}}"><div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
         <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
         ICETME–2027
-    </div>
+    </div></a>
     <div class="hidden lg:flex gap-8">
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="index.html">Home</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="#">About</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="index.html#papers">Call for Papers</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="registration.html">Registration</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="#contact">Contact</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('home')}}">Home</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="{{url_for('about')}}">About</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('register')}}">Registration</a>
     </div>
     <button class="lg:hidden text-primary focus:outline-none">
         <span class="material-symbols-outlined text-3xl">menu</span>
@@ -115,14 +113,14 @@
                     <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-20 duration-500 pointer-events-none"></div>
 
                     <div id="nita-slideshow" class="w-full h-full relative z-10">
-                        <img src="campus_13.jpeg" alt="NITA Topiary" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="campus_4 (1).jpeg" alt="NITA Statue Sunset" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="campus_12.jpeg" alt="NITA Campus Path" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="campus_1.jpeg" alt="NITA Fountain" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="static/images/campus_13.jpeg" alt="NITA Topiary" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                        <img src="static/images/campus_4.jpeg" alt="NITA Statue Sunset" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="static/images/campus_12.jpeg" alt="NITA Campus Path" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="static/images/campus_1.jpeg" alt="NITA Fountain" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                         
-                        <img src="campus_2.jpeg" alt="NITA Fountain Red" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="nita_1.png" alt="NITA Building 1" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="nita_2.png" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="static/images/campus_2.jpeg" alt="NITA Fountain Red" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="static/images/nita_1.png" alt="NITA Building 1" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        <img src="static/images/nita_2.png" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                     </div>
                 </div>               
 
@@ -230,19 +228,7 @@
     </div>
 </main>
 
-<footer id="contact" class="bg-slate-900 text-slate-300 w-full pt-20 pb-8 relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-0"></div>
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
-        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60">
-            <p>© 2027 ICETME. Department of Mechanical Engineering, NIT Agartala.</p>
-            <div class="flex gap-6">
-                <span>Designed for Academic Excellence</span>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script src="about.js"></script>
+<script src="static/js/about.js"></script>
 
 </body>
 </html>

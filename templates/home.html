@@ -87,7 +87,7 @@
     
     <!-- Desktop Menu -->
     <div class="hidden lg:flex gap-8">
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#about">About</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('about')}}">About</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#advisory">Advisory Board</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#dates">Important Dates</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#papers">Call for Papers</a>
@@ -925,47 +925,128 @@
 
         <!-- Top Leaders -->
         <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-primary card-hover">
-                <p class="text-primary font-bold text-xs uppercase tracking-widest mb-4">Chief Patron</p>
-                <h3 class="text-2xl font-bold font-headline mb-2">Director</h3>
-                <p class="text-on-surface-variant text-sm">NIT Agartala</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-tertiary card-hover">
-                <p class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Patron</p>
-                <h3 class="text-2xl font-bold font-headline mb-2">Dean (Academic)</h3>
-                <p class="text-on-surface-variant text-sm">NIT Agartala</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-tertiary card-hover">
-                <p class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Patron</p>
-                <h3 class="text-2xl font-bold font-headline mb-2">Dean (R&C)</h3>
-                <p class="text-on-surface-variant text-sm">NIT Agartala</p>
-            </div>
+    <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-primary card-hover flex flex-col items-center">
+        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-6">Chief Patron</p>
+        <div class="w-28 h-28 mb-6 relative group">
+            <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+            <img src="/static/images/committee/director.jpeg" 
+                 alt="Director" 
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
+                 class="relative w-full h-full object-cover rounded-full border-4 border-primary/10 shadow-lg">
         </div>
+        <h3 class="text-2xl font-bold font-headline mb-2 text-on-surface">Director</h3>
+        <p class="text-on-surface-variant text-sm">NIT Agartala</p>
+    </div>
+
+    <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-tertiary card-hover flex flex-col items-center">
+        <p class="text-tertiary font-bold text-xs uppercase tracking-widest mb-6">Patron</p>
+        <div class="w-28 h-28 mb-6 relative group">
+            <div class="absolute inset-0 bg-tertiary/10 rounded-full group-hover:bg-tertiary/20 transition-colors"></div>
+            <img src="/static/images/committee/dean_academic.jpeg" 
+                 alt="Dean (Academic)" 
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
+                 class="relative w-full h-full object-cover rounded-full border-4 border-tertiary/10 shadow-lg">
+        </div>
+        <h3 class="text-2xl font-bold font-headline mb-2 text-on-surface">Dean (Academic)</h3>
+        <p class="text-on-surface-variant text-sm">NIT Agartala</p>
+    </div>
+
+    <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-tertiary card-hover flex flex-col items-center">
+        <p class="text-tertiary font-bold text-xs uppercase tracking-widest mb-6">Patron</p>
+        <div class="w-28 h-28 mb-6 relative group">
+            <div class="absolute inset-0 bg-tertiary/10 rounded-full group-hover:bg-tertiary/20 transition-colors"></div>
+            <img src="/static/images/committee/dean_rc.jpeg" 
+                 alt="Dean (R&C)" 
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
+                 class="relative w-full h-full object-cover rounded-full border-4 border-tertiary/10 shadow-lg">
+        </div>
+        <h3 class="text-2xl font-bold font-headline mb-2 text-on-surface">Dean (R&C)</h3>
+        <p class="text-on-surface-variant text-sm">NIT Agartala</p>
+    </div>
+</div>
 
         <!-- Chairs -->
         <div class="grid md:grid-cols-2 gap-8 mb-16 px-0 md:px-32">
-            <div class="bg-surface p-8 rounded-3xl text-center shadow-sm border border-outline-variant/10 card-hover">
-                <h4 class="font-headline font-bold text-xl mb-1">Dr. Rajsekhar Panua (HOD)</h4>
-                <p class="text-primary font-bold text-xs uppercase tracking-widest mt-3">Chairperson</p>
+        <div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                <img src="/static/images/committee/rajsekhar_panua.jpeg" 
+                    alt="Dr. Rajsekhar Panua" 
+                    onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
+                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
             </div>
-            <div class="bg-surface p-8 rounded-3xl text-center shadow-sm border border-outline-variant/10 card-hover">
-                <h4 class="font-headline font-bold text-xl mb-1">Dr. Pritam Das</h4>
-                <p class="text-primary font-bold text-xs uppercase tracking-widest mt-3">Vice-Chairperson</p>
+            <h4 class="font-headline font-bold text-xl mb-1 text-on-surface">Dr. Rajsekhar Panua (HOD)</h4>
+            <p class="text-primary font-bold text-xs uppercase tracking-widest mt-2">Chairperson</p>
+        </div>
+
+        <div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-24 h-24 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                <img src="/static/images/committee/pritam_das.jpeg" 
+                    alt="Dr. Pritam Das" 
+                    onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
+                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
             </div>
+            <h4 class="font-headline font-bold text-xl mb-1 text-on-surface">Dr. Pritam Das</h4>
+            <p class="text-primary font-bold text-xs uppercase tracking-widest mt-2">Vice-Chairperson</p>
+        </div>
         </div>
 
         <!-- Organizing Secretaries -->
-        <div>
-            <h3 class="font-headline text-2xl font-bold text-center mb-10">Organizing Secretaries</h3>
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="px-8 py-4 bg-surface rounded-full shadow border border-outline-variant/10 card-hover font-semibold">Dr. Arindam Majumder</div>
-                <div class="px-8 py-4 bg-surface rounded-full shadow border border-outline-variant/10 card-hover font-semibold">Dr. Dipak Chandra Das</div>
-                <div class="px-8 py-4 bg-surface rounded-full shadow border border-outline-variant/10 card-hover font-semibold">Dr. Madhujit Deb</div>
-                <div class="px-8 py-4 bg-surface rounded-full shadow border border-outline-variant/10 card-hover font-semibold">Dr. Paramvir Singh</div>
-                <div class="px-8 py-4 bg-surface rounded-full shadow border border-outline-variant/10 card-hover font-semibold">Dr. Ravivarman R</div>
-                <div class="px-8 py-4 bg-surface rounded-full shadow border border-outline-variant/10 card-hover font-semibold">Dr. Sagnik Pal</div>
+        <div class="mt-16">
+    <h3 class="font-headline text-2xl font-bold text-center mb-12">Organizing Secretaries</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
+        
+        <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-20 h-20 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+                <img src="/static/images/committee/arindam_majumder.jpeg" alt="Dr. Arindam Majumder" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/10 shadow-sm">
             </div>
+            <h4 class="font-headline font-bold text-[15px] text-on-surface leading-tight">Dr. Arindam Majumder</h4>
         </div>
+
+        <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-20 h-20 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+                <img src="/static/images/committee/dipak_das.jpeg" alt="Dr. Dipak Chandra Das" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/10 shadow-sm">
+            </div>
+            <h4 class="font-headline font-bold text-[15px] text-on-surface leading-tight">Dr. Dipak Chandra Das</h4>
+        </div>
+
+        <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-20 h-20 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+                <img src="/static/images/committee/madhujit_deb.jpeg" alt="Dr. Madhujit Deb" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/10 shadow-sm">
+            </div>
+            <h4 class="font-headline font-bold text-[15px] text-on-surface leading-tight">Dr. Madhujit Deb</h4>
+        </div>
+
+        <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-20 h-20 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+                <img src="/static/images/committee/paramvir_singh.jpeg" alt="Dr. Paramvir Singh" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/10 shadow-sm">
+            </div>
+            <h4 class="font-headline font-bold text-[15px] text-on-surface leading-tight">Dr. Paramvir Singh</h4>
+        </div>
+
+        <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-20 h-20 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+                <img src="/static/images/committee/ravivarman.jpeg" alt="Dr. Ravivarman R" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/10 shadow-sm">
+            </div>
+            <h4 class="font-headline font-bold text-[15px] text-on-surface leading-tight">Dr. Ravivarman R</h4>
+        </div>
+
+        <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
+            <div class="w-20 h-20 mb-4 relative group">
+                <div class="absolute inset-0 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+                <img src="/static/images/committee/sagnik_pal.jpeg" alt="Dr. Sagnik Pal" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/10 shadow-sm">
+            </div>
+            <h4 class="font-headline font-bold text-[15px] text-on-surface leading-tight">Dr. Sagnik Pal</h4>
+        </div>
+
+    </div>
+</div>
 
         <!-- Student Committee -->
         <div class="mt-24">
