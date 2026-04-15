@@ -1,315 +1,597 @@
 <!DOCTYPE html>
 <html class="scroll-smooth scroll-pt-32" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>About | ICETME–2027</title>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                  "primary": "#003ec7",
-                  "primary-container": "#0052ff",
-                  "on-primary": "#ffffff",
-                  "on-primary-container": "#dfe3ff",
-                  "primary-fixed": "#dde1ff",
-                  "on-primary-fixed": "#001452",
-                  "surface": "#f7f9fb",
-                  "on-surface": "#191c1e",
-                  "surface-variant": "#e0e3e5",
-                  "on-surface-variant": "#434656",
-                  "outline": "#737688",
-                  "outline-variant": "#c3c5d9",
-                  "surface-container-lowest": "#ffffff",
-                  "surface-container-low": "#f2f4f6",
-                  "surface-container": "#eceef0",
-                  "surface-container-high": "#e6e8ea",
-                  "background": "#f7f9fb",
-                  "on-background": "#191c1e",
-              },
-              fontFamily: {
-                  "headline": ["Space Grotesk", "sans-serif"],
-                  "body": ["Inter", "sans-serif"]
-              }
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003ec7",
+                        "primary-container": "#0052ff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#dfe3ff",
+                        "primary-fixed": "#dde1ff",
+                        "on-primary-fixed": "#001452",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface-variant": "#434656",
+                        "outline": "#737688",
+                        "outline-variant": "#c3c5d9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "background": "#f7f9fb",
+                        "on-background": "#191c1e",
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    }
+                }
             }
-          }
         }
     </script>
-    <link rel="stylesheet" href="static/css/about.css">
+    <link rel="stylesheet" href="/static/css/about.css">
+
+    <!-- ── HAMBURGER MENU STYLES ── -->
+    <style>
+        /* Wrapper gives the absolute dropdown an anchor point */
+        #nav-wrapper {
+            position: relative;
+        }
+
+        /* Mobile dropdown: slides down from below the pill */
+        #mobile-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            right: 0;
+            z-index: 100;
+
+            /* Hidden state */
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            visibility: hidden;
+
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+
+            /* Card styling */
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(195, 197, 217, 0.35);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 62, 199, 0.10);
+            overflow: hidden;
+        }
+
+        /* Open state: fade + slide in */
+        #mobile-menu.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        /* Nav pill stays pill-shaped always – no overrides needed */
+    </style>
 </head>
+
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
-<nav class="glass-card rounded-full sticky top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-8 py-4 transition-all duration-300">
-    <a href="{{url_for('home')}}"><div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
-        <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
-        ICETME–2027
-    </div></a>
-    <div class="hidden lg:flex gap-8">
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('home')}}">Home</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="{{url_for('about')}}">About</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('travel')}}">Travel</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('register')}}">Registration</a>
-    </div>
-    <button class="lg:hidden text-primary focus:outline-none">
-        <span class="material-symbols-outlined text-3xl">menu</span>
-    </button>
-</nav>
+    <!-- ── NAV WRAPPER: gives #mobile-menu an absolute positioning anchor ── -->
+    <div id="nav-wrapper" class="sticky top-6 z-50 max-w-7xl mx-auto w-[95%]">
 
-<header class="reveal-up container mx-auto px-6 max-w-7xl pt-32 pb-16 text-center">
-    <span class="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">The Destination</span>
-    <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-background leading-tight mb-6">
-        Discover the <span class="gradient-text">Conference.</span>
-    </h1>
-    <div class="w-24 h-1 bg-gradient-to-r from-primary to-primary-container mx-auto rounded-full"></div>
-</header>
+        <!-- Pill nav bar -->
+        <nav id="main-nav"
+            class="glass-card rounded-full flex justify-between items-center px-6 sm:px-8 py-4 transition-all duration-300">
 
-<main class="container mx-auto px-6 max-w-7xl pb-32">
-    <div class="space-y-32">
-        
-        <div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal-up mb-16">
-                
-                <div class="relative group rounded-[2.5rem] overflow-hidden shadow-2xl oiled-transition hover:shadow-[0_40px_80px_rgba(0,62,199,0.15)] aspect-[4/3]">
-                    <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-20 duration-500 pointer-events-none"></div>
-                    
-                    <div id="tripura-slideshow" class="w-full h-full relative z-10">
-                        <img src="static/images/tripura/tripura.jpeg" alt="Ujjayanta Palace Day" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        
-                        <img src="static/images/tripura/tripura3.jpeg" alt="Heritage Park Gates" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura2.jpeg" alt="Agartala tripura Interior" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura5.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura6.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura7.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura8.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura9.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura10.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura11.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura12.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura13.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura14.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura15.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura16.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura17.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura18.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura19.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura20.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura21.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura22.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura23.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura24.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura25.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura26.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura27.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura28.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura29.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura30.jpeg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura31.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura32.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura33.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura34.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura35.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura36.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura37.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura38.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura39.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura40.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura41.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura42.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura43.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura44.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/tripura/tripura45.jpg" alt="Agartala tripura Tarmac" class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-
-                    </div>
+            <a href="{{url_for('home')}}">
+                <div
+                    class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                    ICETME–2027
                 </div>
+            </a>
 
-                <div>
-                    <h3 class="font-headline text-3xl md:text-4xl font-bold text-on-background mb-6">Incredible Tripura</h3>
-                    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
-                        Nestled in the lush landscapes of Northeast India, Tripura is a region of breathtaking natural beauty and deep cultural heritage. From magnificent palaces to ancient rock carvings, the state offers a unique blend of history and tranquility.
-                    </p>
-                    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
-                        Delegates will experience the warm hospitality, vibrant traditions, and serene environment that makes Tripura an inspiring backdrop for global academic discourse.
-                    </p>
-                </div>
+            <!-- Desktop links -->
+            <div class="hidden lg:flex gap-8">
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary"
+                    href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('register')}}">Registration</a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up">
-                
-                <div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
-                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                        <span class="material-symbols-outlined">history_edu</span>
-                    </div>
-                    <h4 class="font-headline text-xl font-bold text-on-background mb-4">Rich Royal History</h4>
-                    <p class="text-on-surface-variant text-[15px] leading-relaxed">
-                        Ruled by the illustrious Manikya dynasty for centuries, Tripura boasts a glorious past recorded in the historical chronicle, the <em>Rajmala</em>. It seamlessly blended ancient tribal traditions with royal Bengali culture before officially integrating into the Indian Union in 1949.
-                    </p>
-                </div>
+            <!-- Hamburger button -->
+            <button id="hamburger-btn"
+                class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full text-primary hover:bg-primary/10 transition-colors focus:outline-none"
+                aria-label="Toggle navigation menu" aria-expanded="false">
+                <span id="hamburger-icon" class="material-symbols-outlined text-[28px]">menu</span>
+            </button>
+        </nav>
 
-                <div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
-                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                        <span class="material-symbols-outlined">explore</span>
-                    </div>
-                    <h4 class="font-headline text-xl font-bold text-on-background mb-4">Iconic Destinations</h4>
-                    <p class="text-on-surface-variant text-[15px] leading-relaxed">
-                        The state is home to majestic architecture and nature. Must-visit sites include the brilliant white <strong>Ujjayanta Palace</strong>, the breathtaking <strong>Neermahal</strong> (Eastern India's only water palace), and the colossal ancient rock-cut carvings of <strong>Unakoti</strong>.
-                    </p>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
-                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                        <span class="material-symbols-outlined">festival</span>
-                    </div>
-                    <h4 class="font-headline text-xl font-bold text-on-background mb-4">Vibrant Festivals</h4>
-                    <p class="text-on-surface-variant text-[15px] leading-relaxed">
-                        Tripura's culture comes alive during massive celebrations like <strong>Kharchi Puja</strong> and <strong>Garia Puja</strong>. Visitors can witness vibrant indigenous celebrations, featuring colorful ethnic attire and rhythmic traditional performances like the famous Hojagiri dance.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="pt-24 border-t border-outline-variant/20 reveal-up">
-            <div class="text-center mb-16">
-                <span class="material-symbols-outlined text-5xl text-primary mb-4">school</span>
-                <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-background mb-6">National Institute of Technology <span class="gradient-text">Agartala</span></h2>
-                <p class="text-xl text-on-surface-variant max-w-4xl mx-auto leading-relaxed font-medium">
-                    Committed to developing highly competent young Engineers, Scientists, and Management Professionals to cater to the ever-increasing techno-managerial needs of national and international standards. fulfilling professional ethics and societal commitment.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-                <div class="lg:col-span-5 lg:sticky lg:top-32 relative group rounded-[2.5rem] overflow-hidden shadow-2xl oiled-transition hover:shadow-[0_40px_80px_rgba(0,62,199,0.15)] aspect-[4/5] md:aspect-[4/3] lg:aspect-[3/4]">
-                    
-                    <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-20 duration-500 pointer-events-none"></div>
-
-                    <div id="nita-slideshow" class="w-full h-full relative z-10">
-                        <img src="static/images/nita/nita_4.jpeg" alt="NITA Topiary" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                        <img src="static/images/nita/nita_1.png" alt="NITA Statue Sunset" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_13.jpeg" alt="NITA Campus Path" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_1.jpeg" alt="NITA Fountain" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        
-                        <img src="static/images/nita/campus_4.jpeg" alt="NITA Fountain Red" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_5.png" alt="NITA Building 1" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_6.jpeg" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_7.jpeg" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_8.jpeg" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_9.jpeg" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                        <img src="static/images/nita/campus_10.jpeg" alt="NITA Building 2" class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                    </div>
-                </div>               
-
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="bg-surface-container-lowest p-8 md:p-10 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span class="material-symbols-outlined">track_changes</span>
-                            </div>
-                            <h3 class="font-headline text-2xl font-bold text-on-background">Our Mission</h3>
-                        </div>
-                        <ul class="space-y-4 text-on-surface-variant text-[15px] md:text-[16px] font-medium leading-relaxed">
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Produce techno-managerial human resources in line with global needs, offering state-of-the-art facilities, research, and training in engineering and allied disciplines.</li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Enhance technical education with innovative systems to solve real problems of industries and academics.</li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Nurture an academic ambience for the economic development of the region and the nation as a whole.</li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Establish the Institute as the corridor of higher education for South East Asian countries.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-surface-container-lowest p-8 md:p-10 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span class="material-symbols-outlined">flag</span>
-                            </div>
-                            <h3 class="font-headline text-2xl font-bold text-on-background">Our Objectives</h3>
-                        </div>
-                        <ul class="space-y-4 text-on-surface-variant text-[15px] md:text-[16px] font-medium leading-relaxed">
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">arrow_right_alt</span> Influence technical practices of governmental and non-governmental organizations through UG and PG teaching, corporate training, and research.</li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">arrow_right_alt</span> Transpire technical knowledge from the Institute to entrepreneurs for regional and national economic growth.</li>
-                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">arrow_right_alt</span> Develop technical systems suitable for the Indian context, particularly focused on the North-Eastern Zone.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-surface-container-low to-surface p-8 md:p-10 rounded-[2rem] border border-outline-variant/20 card-hover">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span class="material-symbols-outlined">menu_book</span>
-                            </div>
-                            <h3 class="font-headline text-2xl font-bold text-on-background">Our Education System</h3>
-                        </div>
-                        <p class="text-on-surface-variant text-[15px] md:text-[16px] leading-relaxed mb-4 font-medium">
-                            Autonomous under the NIT Act passed by Parliament, the Institute currently offers eight UG courses, alongside multiple PG courses and Post-Doctoral Fellowships.
-                        </p>
-                        <p class="text-on-surface-variant text-[15px] md:text-[16px] leading-relaxed font-medium">
-                            Keeping track with global evaluation methods, we have switched to a credit-based system and introduced a new, flexible curriculum in line with IITs, offering a greater number of elective subjects. Industrial training, undertaking projects, and social development activities through NSS and NCC form the core of our holistic education system.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pt-24 border-t border-outline-variant/20">
-            
-            <div class="text-center mb-16 reveal-up">
-                <span class="material-symbols-outlined text-5xl text-primary mb-4">engineering</span>
-                <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-background mb-6">Department of <span class="gradient-text">Mechanical Engineering</span></h2>
-                <p class="text-xl text-on-surface-variant max-w-4xl mx-auto leading-relaxed font-medium">
-                    One of the largest and oldest Departments of the Institute, gratifying students with top-class teaching-learning facilities and state-of-the-art laboratories. fulfilling societal problem regional growth through innovative thinking for developing appropriate technological solutions.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24 reveal-up">
-                <div class="bg-gradient-to-br from-[#003ec7] to-[#001452] p-10 rounded-[2.5rem] text-white shadow-xl card-hover">
-                    <span class="material-symbols-outlined text-4xl mb-6 text-primary-container">visibility</span>
-                    <h3 class="font-headline text-3xl font-bold mb-4">Our Vision</h3>
-                    <p class="text-white/90 text-lg leading-relaxed">
-                        To generate high-quality graduates through rigorous coursework, adopting industry-oriented course structures and cutting-edge research activities to address societal problems and drive regional growth through innovative thinking for developing appropriate technological solutions. well experienced faculty members academic course work and projects designed satisfy placements higher studies proofs the versatility of graduates for economic development of nation progress as continuous progress of Nation
-                    </p>
-                </div>
-                
-                <div class="bg-surface-container-lowest p-10 rounded-[2.5rem] border border-outline-variant/30 shadow-sm card-hover">
-                    <span class="material-symbols-outlined text-4xl mb-6 text-primary">rocket_launch</span>
-                    <h3 class="font-headline text-3xl font-bold mb-4 text-on-background">Our Mission</h3>
-                    <ul class="space-y-4 text-on-surface-variant text-[15px] font-medium">
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Provide students with the ability to apply science, mathematics, and engineering, blended with ethics.</li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Develop the capability to work effectively in multidisciplinary teams, providing leadership and technical expertise.</li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span> Prepare scholars in specialized areas with a deep focus on industrial requirements and cutting-edge R&D.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 reveal-up">
-                <div>
-                    <h4 class="font-headline text-2xl font-bold text-on-background mb-4">Academic Excellence & NBA Accreditation</h4>
-                    <p class="text-on-surface-variant leading-relaxed mb-4">
-                        To add a feather in the cap, the UG program of the Department has been reaccredited by <strong>The National Board of Accreditation (NBA)</strong>. This is the second time the Department has been accredited continuously since 2013. The Post graduate Programs in Thermal Science Manufacturing Technology have been designed to prepare scholars in specified areas within the field deep focus on industrial requirement.
-                    </p>
-                    <p class="text-on-surface-variant leading-relaxed mb-4">
-                        The Post Graduate Programs have been designed to align academic coursework with research. In addition to regular academics, students are encouraged to participate in co-curricular activities and utilize our massive infrastructure in all laboratories and workshops.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-headline text-2xl font-bold text-on-background mb-4">Research & Alumni Network</h4>
-                    <p class="text-on-surface-variant leading-relaxed mb-4">
-                        The Department encourages active collaborative and inter-disciplinary research. Faculty members with excellent academic credentials have been engaged in research activities helps achieve award helped them to achieve awards at national and international levels symbiosis and conferences as well placed PSUs supported offer training placements offering massive infrastructure workshops for carrying collaborative inter disciplinary teaching distinguished editorial board input offerings versatility of our graduates offer training and progress continuously offering placements continuously commit continuously commit overall development Nation economic economic growth Regioneconomic Nation ECONOMIC PROGRESSEconomic Progress for economy économique Nation economic économie progress offer continuous offering Economic Region
-                    </p>
-                    <p class="text-on-surface-variant leading-relaxed">
-                        Thousands of Alumni of this Department, who are well placed in different Industry, Organizations, Companies, PSUs, Management Institutes, and higher studies continuously support the Department with their expertise, offering training and placement scope. We maintain a strong commitment for the Overall Development of the students and the continuous progress of the Nation.
-                    </p>
-                </div>
+        <!-- Mobile dropdown: absolutely positioned BELOW the pill, not inside it -->
+        <div id="mobile-menu" class="lg:hidden" role="navigation" aria-label="Mobile navigation">
+            <div class="flex flex-col gap-1 px-5 py-4">
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5"
+                    href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('register')}}">Registration</a>
             </div>
         </div>
 
     </div>
-</main>
+    <!-- ── END NAV WRAPPER ── -->
 
-<script src="static/js/about.js"></script>
+    <!-- Header: added text-4xl sm:text-5xl md:text-7xl for tiny screen safety -->
+    <header class="reveal-up container mx-auto px-6 max-w-7xl pt-32 pb-16 text-center">
+        <span class="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">The Destination</span>
+        <h1
+            class="font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter text-on-background leading-tight mb-6">
+            Discover the <span class="gradient-text">Conference.</span>
+        </h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-primary-container mx-auto rounded-full"></div>
+    </header>
+
+    <main class="container mx-auto px-6 max-w-7xl pb-32">
+        <div class="space-y-32">
+
+            <div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal-up mb-16">
+
+                    <div
+                        class="relative group rounded-[2.5rem] overflow-hidden shadow-2xl oiled-transition hover:shadow-[0_40px_80px_rgba(0,62,199,0.15)] aspect-[4/3]">
+                        <div
+                            class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-20 duration-500 pointer-events-none">
+                        </div>
+
+                        <div id="tripura-slideshow" class="w-full h-full relative z-10">
+                            <img src="/static/images/tripura/tripura.jpeg" alt="Ujjayanta Palace Day"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                            <img src="/static/images/tripura/tripura3.jpeg" alt="Heritage Park Gates"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura2.jpeg" alt="Agartala tripura Interior"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura5.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura6.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura7.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura8.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura9.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura10.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura11.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura12.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura13.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura14.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura15.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura16.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura17.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura18.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura19.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura20.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura21.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura22.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura23.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura24.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura25.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura26.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura27.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura28.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura29.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura30.jpeg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura31.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura32.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura33.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura34.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura35.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura36.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura37.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura38.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura39.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura40.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura41.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura42.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura43.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura44.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/tripura/tripura45.jpg" alt="Agartala tripura Tarmac"
+                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-headline text-3xl md:text-4xl font-bold text-on-background mb-6">Incredible
+                            Tripura</h3>
+                        <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+                            Nestled in the lush landscapes of Northeast India, Tripura is a region of breathtaking
+                            natural beauty and deep cultural heritage. From magnificent palaces to ancient rock
+                            carvings, the state offers a unique blend of history and tranquility.
+                        </p>
+                        <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+                            Delegates will experience the warm hospitality, vibrant traditions, and serene environment
+                            that makes Tripura an inspiring backdrop for global academic discourse.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up">
+
+                    <div
+                        class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                            <span class="material-symbols-outlined">history_edu</span>
+                        </div>
+                        <h4 class="font-headline text-xl font-bold text-on-background mb-4">Rich Royal History</h4>
+                        <p class="text-on-surface-variant text-[15px] leading-relaxed">
+                            Ruled by the illustrious Manikya dynasty for centuries, Tripura boasts a glorious past
+                            recorded in the historical chronicle, the <em>Rajmala</em>. It seamlessly blended ancient
+                            tribal traditions with royal Bengali culture before officially integrating into the Indian
+                            Union in 1949.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                            <span class="material-symbols-outlined">explore</span>
+                        </div>
+                        <h4 class="font-headline text-xl font-bold text-on-background mb-4">Iconic Destinations</h4>
+                        <p class="text-on-surface-variant text-[15px] leading-relaxed">
+                            The state is home to majestic architecture and nature. Must-visit sites include the
+                            brilliant white <strong>Ujjayanta Palace</strong>, the breathtaking
+                            <strong>Neermahal</strong> (Eastern India's only water palace), and the colossal ancient
+                            rock-cut carvings of <strong>Unakoti</strong>.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                            <span class="material-symbols-outlined">festival</span>
+                        </div>
+                        <h4 class="font-headline text-xl font-bold text-on-background mb-4">Vibrant Festivals</h4>
+                        <p class="text-on-surface-variant text-[15px] leading-relaxed">
+                            Tripura's culture comes alive during massive celebrations like <strong>Kharchi Puja</strong>
+                            and <strong>Garia Puja</strong>. Visitors can witness vibrant indigenous celebrations,
+                            featuring colorful ethnic attire and rhythmic traditional performances like the famous
+                            Hojagiri dance.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="pt-24 border-t border-outline-variant/20 reveal-up">
+                <div class="text-center mb-16">
+                    <span class="material-symbols-outlined text-5xl text-primary mb-4">school</span>
+                    <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background mb-6">
+                        National Institute of Technology <span class="gradient-text">Agartala</span></h2>
+                    <p class="text-xl text-on-surface-variant max-w-4xl mx-auto leading-relaxed font-medium">
+                        Committed to developing highly competent young Engineers, Scientists, and Management
+                        Professionals to cater to the ever-increasing techno-managerial needs of national and
+                        international standards. fulfilling professional ethics and societal commitment.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+                    <div
+                        class="lg:col-span-5 lg:sticky lg:top-32 relative group rounded-[2.5rem] overflow-hidden shadow-2xl oiled-transition hover:shadow-[0_40px_80px_rgba(0,62,199,0.15)] aspect-[4/5] md:aspect-[4/3] lg:aspect-[3/4]">
+
+                        <div
+                            class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-20 duration-500 pointer-events-none">
+                        </div>
+
+                        <div id="nita-slideshow" class="w-full h-full relative z-10">
+                            <img src="/static/images/nita/nita_4.jpeg" alt="NITA Topiary"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+                            <img src="/static/images/nita/nita_1.png" alt="NITA Statue Sunset"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_13.jpeg" alt="NITA Campus Path"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_1.jpeg" alt="NITA Fountain"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_4.jpeg" alt="NITA Fountain Red"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_5.png" alt="NITA Building 1"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_6.jpeg" alt="NITA Building 2"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_7.jpeg" alt="NITA Building 2"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_8.jpeg" alt="NITA Building 2"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_9.jpeg" alt="NITA Building 2"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                            <img src="/static/images/nita/campus_10.jpeg" alt="NITA Building 2"
+                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-8">
+                        <div
+                            class="bg-surface-container-lowest p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span class="material-symbols-outlined">track_changes</span>
+                                </div>
+                                <h3 class="font-headline text-2xl font-bold text-on-background">Our Mission</h3>
+                            </div>
+                            <ul
+                                class="space-y-4 text-on-surface-variant text-[15px] md:text-[16px] font-medium leading-relaxed">
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                    Produce techno-managerial human resources in line with global needs, offering
+                                    state-of-the-art facilities, research, and training in engineering and allied
+                                    disciplines.</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                    Enhance technical education with innovative systems to solve real problems of
+                                    industries and academics.</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                    Nurture an academic ambience for the economic development of the region and the
+                                    nation as a whole.</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                    Establish the Institute as the corridor of higher education for South East Asian
+                                    countries.</li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="bg-surface-container-lowest p-6 md:p-8 lg:p-10 rounded-[2rem] shadow-sm border border-outline-variant/30 card-hover">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span class="material-symbols-outlined">flag</span>
+                                </div>
+                                <h3 class="font-headline text-2xl font-bold text-on-background">Our Objectives</h3>
+                            </div>
+                            <ul
+                                class="space-y-4 text-on-surface-variant text-[15px] md:text-[16px] font-medium leading-relaxed">
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">arrow_right_alt</span>
+                                    Influence technical practices of governmental and non-governmental organizations
+                                    through UG and PG teaching, corporate training, and research.</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">arrow_right_alt</span>
+                                    Transpire technical knowledge from the Institute to entrepreneurs for regional and
+                                    national economic growth.</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">arrow_right_alt</span>
+                                    Develop technical systems suitable for the Indian context, particularly focused on
+                                    the North-Eastern Zone.</li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="bg-gradient-to-br from-surface-container-low to-surface p-6 md:p-8 lg:p-10 rounded-[2rem] border border-outline-variant/20 card-hover">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span class="material-symbols-outlined">menu_book</span>
+                                </div>
+                                <h3 class="font-headline text-2xl font-bold text-on-background">Our Education System
+                                </h3>
+                            </div>
+                            <p
+                                class="text-on-surface-variant text-[15px] md:text-[16px] leading-relaxed mb-4 font-medium">
+                                Autonomous under the NIT Act passed by Parliament, the Institute currently offers eight
+                                UG courses, alongside multiple PG courses and Post-Doctoral Fellowships.
+                            </p>
+                            <p class="text-on-surface-variant text-[15px] md:text-[16px] leading-relaxed font-medium">
+                                Keeping track with global evaluation methods, we have switched to a credit-based system
+                                and introduced a new, flexible curriculum in line with IITs, offering a greater number
+                                of elective subjects. Industrial training, undertaking projects, and social development
+                                activities through NSS and NCC form the core of our holistic education system.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-24 border-t border-outline-variant/20">
+
+                <div class="text-center mb-16 reveal-up">
+                    <span class="material-symbols-outlined text-5xl text-primary mb-4">engineering</span>
+                    <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background mb-6">
+                        Department of <span class="gradient-text">Mechanical Engineering</span></h2>
+                    <p class="text-xl text-on-surface-variant max-w-4xl mx-auto leading-relaxed font-medium">
+                        One of the largest and oldest Departments of the Institute, gratifying students with top-class
+                        teaching-learning facilities and state-of-the-art laboratories. fulfilling societal problem
+                        regional growth through innovative thinking for developing appropriate technological solutions.
+                    </p>
+                </div>
+
+                <!-- Vision/Mission: p-6 md:p-10 instead of p-10 for mobile breathing room -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24 reveal-up">
+                    <div
+                        class="bg-gradient-to-br from-[#003ec7] to-[#001452] p-6 md:p-10 rounded-[2.5rem] text-white shadow-xl card-hover">
+                        <span class="material-symbols-outlined text-4xl mb-6 text-primary-container">visibility</span>
+                        <h3 class="font-headline text-3xl font-bold mb-4">Our Vision</h3>
+                        <p class="text-white/90 text-lg leading-relaxed">
+                            To generate high-quality graduates through rigorous coursework, adopting industry-oriented
+                            course structures and cutting-edge research activities to address societal problems and
+                            drive regional growth through innovative thinking for developing appropriate technological
+                            solutions. well experienced faculty members academic course work and projects designed
+                            satisfy placements higher studies proofs the versatility of graduates for economic
+                            development of nation progress as continuous progress of Nation
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-surface-container-lowest p-6 md:p-10 rounded-[2.5rem] border border-outline-variant/30 shadow-sm card-hover">
+                        <span class="material-symbols-outlined text-4xl mb-6 text-primary">rocket_launch</span>
+                        <h3 class="font-headline text-3xl font-bold mb-4 text-on-background">Our Mission</h3>
+                        <ul class="space-y-4 text-on-surface-variant text-[15px] font-medium">
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                Provide students with the ability to apply science, mathematics, and engineering,
+                                blended with ethics.</li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                Develop the capability to work effectively in multidisciplinary teams, providing
+                                leadership and technical expertise.</li>
+                            <li class="flex items-start gap-3"><span
+                                    class="material-symbols-outlined text-primary text-xl mt-0.5 shrink-0">check_circle</span>
+                                Prepare scholars in specialized areas with a deep focus on industrial requirements and
+                                cutting-edge R&D.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 reveal-up">
+                    <div>
+                        <h4 class="font-headline text-2xl font-bold text-on-background mb-4">Academic Excellence & NBA
+                            Accreditation</h4>
+                        <p class="text-on-surface-variant leading-relaxed mb-4">
+                            To add a feather in the cap, the UG program of the Department has been reaccredited by
+                            <strong>The National Board of Accreditation (NBA)</strong>. This is the second time the
+                            Department has been accredited continuously since 2013. The Post graduate Programs in
+                            Thermal Science Manufacturing Technology have been designed to prepare scholars in specified
+                            areas within the field deep focus on industrial requirement.
+                        </p>
+                        <p class="text-on-surface-variant leading-relaxed mb-4">
+                            The Post Graduate Programs have been designed to align academic coursework with research. In
+                            addition to regular academics, students are encouraged to participate in co-curricular
+                            activities and utilize our massive infrastructure in all laboratories and workshops.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-headline text-2xl font-bold text-on-background mb-4">Research & Alumni Network
+                        </h4>
+                        <p class="text-on-surface-variant leading-relaxed mb-4">
+                            The Department encourages active collaborative and inter-disciplinary research. Faculty
+                            members with excellent academic credentials have been engaged in research activities helps
+                            achieve award helped them to achieve awards at national and international levels symbiosis
+                            and conferences as well placed PSUs supported offer training placements offering massive
+                            infrastructure workshops for carrying collaborative inter disciplinary teaching
+                            distinguished editorial board input offerings versatility of our graduates offer training
+                            and progress continuously offering placements continuously commit continuously commit
+                            overall development Nation economic economic growth Regioneconomic Nation ECONOMIC
+                            PROGRESSEconomic Progress for economy économique Nation economic économie progress offer
+                            continuous offering Economic Region
+                        </p>
+                        <p class="text-on-surface-variant leading-relaxed">
+                            Thousands of Alumni of this Department, who are well placed in different Industry,
+                            Organizations, Companies, PSUs, Management Institutes, and higher studies continuously
+                            support the Department with their expertise, offering training and placement scope. We
+                            maintain a strong commitment for the Overall Development of the students and the continuous
+                            progress of the Nation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/static/js/about.js"></script>
+
+    <!-- ── HAMBURGER MENU SCRIPT ── -->
+    <script>
+        (function () {
+            const btn  = document.getElementById('hamburger-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+
+            if (!btn || !menu) return;
+
+            function closeMenu() {
+                menu.classList.remove('open');
+                icon.textContent = 'menu';
+                btn.setAttribute('aria-expanded', 'false');
+            }
+
+            function openMenu() {
+                menu.classList.add('open');
+                icon.textContent = 'close';
+                btn.setAttribute('aria-expanded', 'true');
+            }
+
+            btn.addEventListener('click', function () {
+                menu.classList.contains('open') ? closeMenu() : openMenu();
+            });
+
+            // Close when any nav link is tapped
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close on resize to desktop
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 1024) closeMenu();
+            });
+        }());
+    </script>
 
 </body>
+
 </html>

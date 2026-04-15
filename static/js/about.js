@@ -1,40 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    // ==========================================
-    // 1. NAVIGATION CONTROLLER (Menu & Sticky Nav)
-    // ==========================================
-    const mobileBtn = document.querySelector('button.lg\\:hidden');
-    const navMenu = document.querySelector('.hidden.lg\\:flex');
 
-    if (mobileBtn && navMenu) {
-        mobileBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('hidden');
-            navMenu.classList.toggle('flex-col');
-            navMenu.classList.toggle('absolute');
-            navMenu.classList.toggle('top-24');
-            navMenu.classList.toggle('left-0');
-            navMenu.classList.toggle('w-full');
-            navMenu.classList.toggle('bg-white/95');
-            navMenu.classList.toggle('backdrop-blur-xl');
-            navMenu.classList.toggle('p-8');
-            navMenu.classList.toggle('shadow-2xl');
-            navMenu.classList.toggle('rounded-3xl');
-            navMenu.classList.toggle('z-50');
+    // ==========================================
+    // 1. STICKY NAV SCROLL BEHAVIOUR
+    // ==========================================
+    // #nav-wrapper holds the sticky position + width; #main-nav is the pill that gets shadow/bg
+    const navWrapper = document.getElementById('nav-wrapper');
+    const navPill    = document.getElementById('main-nav');
+    if (navWrapper && navPill) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navWrapper.classList.remove('top-6', 'w-[95%]');
+                navWrapper.classList.add('top-0', 'w-full');
+                navPill.classList.add('shadow-lg', 'bg-white/90', 'rounded-2xl');
+                navPill.classList.remove('rounded-full');
+            } else {
+                navWrapper.classList.add('top-6', 'w-[95%]');
+                navWrapper.classList.remove('top-0', 'w-full');
+                navPill.classList.remove('shadow-lg', 'bg-white/90', 'rounded-2xl');
+                navPill.classList.add('rounded-full');
+            }
         });
     }
-
-    const navbar = document.querySelector('nav');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('shadow-lg', 'bg-white/90');
-            navbar.classList.remove('w-[95%]', 'top-6');
-            navbar.classList.add('w-full', 'top-0');
-        } else {
-            navbar.classList.remove('shadow-lg', 'bg-white/90');
-            navbar.classList.remove('w-full', 'top-0');
-            navbar.classList.add('w-[95%]', 'top-6');
-        }
-    });
 
     // ==========================================
     // 2. SCROLL REVEAL ANIMATOR
@@ -45,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
@@ -58,43 +44,42 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ==========================================
-    // 3. NITA FADING SLIDESHOW (Campus Photos ONLY)
+    // 3. NITA FADING SLIDESHOW
     // ==========================================
     const nitaSlides = document.querySelectorAll('.nita-slide');
-    
+
     if (nitaSlides.length > 0) {
-        let currentSlide = 0; 
-        
+        let currentSlide = 0;
+
         setInterval(() => {
             nitaSlides[currentSlide].classList.remove('opacity-100');
             nitaSlides[currentSlide].classList.add('opacity-0');
-            
+
             currentSlide = (currentSlide + 1) % nitaSlides.length;
-            
+
             nitaSlides[currentSlide].classList.remove('opacity-0');
             nitaSlides[currentSlide].classList.add('opacity-100');
-            
-        }, 3500); 
+        }, 3500);
     }
 
     // ==========================================
-    // 4. TRIPURA FADING SLIDESHOW (Tripura & Airport ONLY)
+    // 4. TRIPURA FADING SLIDESHOW
     // ==========================================
     const tripuraSlides = document.querySelectorAll('.tripura-slide');
-    
+
     if (tripuraSlides.length > 0) {
-        let currentTripSlide = 0; 
-        
+        let currentTripSlide = 0;
+
         setInterval(() => {
             tripuraSlides[currentTripSlide].classList.remove('opacity-100');
             tripuraSlides[currentTripSlide].classList.add('opacity-0');
-            
+
             currentTripSlide = (currentTripSlide + 1) % tripuraSlides.length;
-            
+
             tripuraSlides[currentTripSlide].classList.remove('opacity-0');
             tripuraSlides[currentTripSlide].classList.add('opacity-100');
-            
-        }, 4000); 
+        }, 4000);
     }
 
 });
+
