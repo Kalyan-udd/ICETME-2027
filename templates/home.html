@@ -74,6 +74,26 @@
         }
     </script>
     <link rel="stylesheet" href="static/css/home.css">
+    <style>
+        /* Scoped to the new Venue section only */
+        .venue-reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 700ms ease, transform 700ms ease;
+            will-change: opacity, transform;
+        }
+        .venue-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .venue-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
@@ -289,6 +309,43 @@
                         <h3 class="text-lg font-bold text-on-background mb-1">Research</h3>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Venue Section -->
+<section id="venue" class="py-16 md:py-24 relative overflow-hidden bg-surface-container-low">
+    <!-- subtle highlight -->
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-tertiary/5 pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative z-10">
+        <div class="text-center venue-reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary font-headline text-xs font-bold uppercase tracking-widest mb-6">
+                <span class="material-symbols-outlined text-sm">location_on</span> Venue
+            </div>
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-4">
+                <span class="gradient-text">Venue</span>
+            </h2>
+
+            <div class="glass-card bg-surface-container-lowest/70 border border-outline-variant/20 rounded-[2rem] shadow-lg px-6 sm:px-10 py-10 md:py-12 max-w-3xl mx-auto">
+                <p class="font-headline text-2xl sm:text-3xl md:text-4xl font-extrabold text-on-background tracking-tight">
+                    National Institute of Technology Agartala
+                </p>
+                <p class="text-on-surface-variant text-base sm:text-lg mt-3 font-medium">
+                    Tripura, India
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <a href="https://www.google.com/maps?q=NIT+Agartala"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="group relative px-6 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] transition-all duration-300 overflow-hidden inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <span class="material-symbols-outlined text-lg">map</span>
+                        Get Directions
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+                    </a>
+                </div>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-primary-container mx-auto rounded-full mt-6"></div>
             </div>
         </div>
     </div>
@@ -1154,5 +1211,28 @@
 </footer>
 
 <script src="static/js/home.js"></script>
+<script>
+    (function () {
+        var venueEl = document.querySelector('.venue-reveal');
+        if (!venueEl) return;
+
+        // If IntersectionObserver isn't supported, just show it.
+        if (!('IntersectionObserver' in window)) {
+            venueEl.classList.add('is-visible');
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    venueEl.classList.add('is-visible');
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.15 });
+
+        observer.observe(venueEl);
+    })();
+</script>
 </body>
 </html>
