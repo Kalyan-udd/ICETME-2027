@@ -1,3 +1,70 @@
+// Dark Mode Toggle Functionality
+(function () {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+    const body = document.body;
+
+    if (!darkModeToggle || !darkModeIcon) return;
+
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('darkMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.classList.add('dark-mode');
+        darkModeIcon.textContent = 'dark_mode';
+    } else {
+        darkModeIcon.textContent = 'light_mode';
+    }
+
+    // Toggle dark mode
+    function toggleDarkMode() {
+        const isDarkMode = body.classList.toggle('dark-mode');
+        
+        // Update icon
+        darkModeIcon.textContent = isDarkMode ? 'dark_mode' : 'light_mode';
+        
+        // Add rotation animation
+        darkModeIcon.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            darkModeIcon.style.transform = 'rotate(0deg)';
+        }, 300);
+        
+        // Save preference
+        localStorage.setItem('darkMode', isDarkMode ? 'dark' : 'light');
+        
+        // Dispatch custom event for other components
+        window.dispatchEvent(new CustomEvent('themeChange', { 
+            detail: { isDarkMode } 
+        }));
+    }
+
+    // Event listeners
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('darkMode')) {
+            if (e.matches) {
+                body.classList.add('dark-mode');
+                darkModeIcon.textContent = 'dark_mode';
+            } else {
+                body.classList.remove('dark-mode');
+                darkModeIcon.textContent = 'light_mode';
+            }
+        }
+    });
+
+    // Keyboard support
+    darkModeToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleDarkMode();
+        }
+    });
+})();
+
 // Mobile hamburger menu toggle
 (function () {
     const btn = document.getElementById('hamburger-btn');
@@ -181,6 +248,139 @@
                 }
             }
         });
+    });
+})();
+
+// 3D Tilt Effect for Cards
+(function () {
+    // Check if device supports touch (mobile/tablet)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // Disable tilt effect on touch devices
+    if (isTouchDevice) {
+        return;
+    }
+
+    // Target card selectors
+    const cardSelectors = [
+        '#speakers .bg-surface-container-lowest',
+        '#advisory .bg-surface-container-lowest', 
+        '#committee .bg-surface-container-lowest',
+        '.card-hover'
+    ];
+
+    // Initialize tilt effect for all matching cards
+    function initTiltEffect() {
+        cardSelectors.forEach(selector => {
+            const cards = document.querySelectorAll(selector);
+            cards.forEach(card => {
+                if (!card.classList.contains('tilt-card')) {
+                    setupTiltCard(card);
+                }
+            });
+        });
+    }
+
+    // Setup individual card for tilt effect
+    function setupTiltCard(card) {
+        card.classList.add('tilt-card');
+        
+        let isHovering = false;
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        // Mouse enter
+        card.addEventListener('mouseenter', function(e) {
+            isHovering = true;
+            const rect = card.getBoundingClientRect();
+            card.style.transition = 'none';
+        });
+
+        // Mouse move
+        card.addEventListener('mousemove', function(e) {
+            if (!isHovering) return;
+
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Calculate position relative to center (normalized -1 to 1)
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+            
+            // Normalize values
+            const normalizedX = (mouseX / (rect.width / 2));
+            const normalizedY = (mouseY / (rect.height / 2));
+            
+            // Apply tilt limits (max 15 degrees)
+            const tiltX = normalizedY * -15; // Invert Y for natural tilt
+            const tiltY = normalizedX * 15;
+            
+            // Apply transform
+            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.03)`;
+            
+            // Update shadow based on tilt
+            updateShadow(card, tiltX, tiltY);
+        });
+
+        // Mouse leave
+        card.addEventListener('mouseleave', function(e) {
+            isHovering = false;
+            card.style.transition = 'transform 0.15s ease-out, box-shadow 0.15s ease-out';
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            resetShadow(card);
+        });
+    }
+
+    // Update dynamic shadow based on tilt
+    function updateShadow(card, tiltX, tiltY) {
+        const shadowX = tiltY * 2;
+        const shadowY = tiltX * 2;
+        const shadowBlur = 20 + Math.abs(tiltX) + Math.abs(tiltY);
+        const shadowOpacity = 0.15 + (Math.abs(tiltX) + Math.abs(tiltY)) / 100;
+        
+        // Check if dark mode is active
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        if (isDarkMode) {
+            card.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, ${shadowOpacity})`;
+        } else {
+            card.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 62, 199, ${shadowOpacity})`;
+        }
+    }
+
+    // Reset shadow to original state
+    function resetShadow(card) {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        if (isDarkMode) {
+            card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+        } else {
+            card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+        }
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTiltEffect);
+    } else {
+        initTiltEffect();
+    }
+
+    // Re-initialize when content changes (for dynamic content)
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                initTiltEffect();
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
     });
 })();
 
