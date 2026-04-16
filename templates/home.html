@@ -74,11 +74,31 @@
         }
     </script>
     <link rel="stylesheet" href="static/css/home.css">
+    <style>
+        /* Scoped to the new Venue section only */
+        .venue-reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 700ms ease, transform 700ms ease;
+            will-change: opacity, transform;
+        }
+        .venue-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .venue-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 <!-- Navigation -->
-<nav class="glass-card rounded-full sticky top-4 md:top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
+<nav class="glass-card rounded-full fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-50 max-w-7xl flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
     <a href="{{url_for('home')}}">
     <div class="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
         <span class="material-symbols-outlined text-2xl md:text-3xl">precision_manufacturing</span>
@@ -96,6 +116,11 @@
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#contact">Contact</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('register')}}">Registration</a>
     </div>
+    
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="hidden lg:flex items-center justify-center w-10 h-10 rounded-full glass-card border border-outline-variant/20 text-primary hover:text-primary transition-all duration-300 focus:outline-none group" aria-label="Toggle dark mode">
+        <span id="dark-mode-icon" class="material-symbols-outlined text-xl transition-transform duration-300 group-hover:rotate-15">light_mode</span>
+    </button>
     
     <!-- Mobile Menu Button (Hidden on Desktop) -->
     <button id="hamburger-btn" class="lg:hidden inline-flex items-center justify-center text-primary focus:outline-none" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu" type="button">
@@ -189,7 +214,7 @@
 </header>
 
 <!-- Sponsor Section -->
-<section id="sponsor" class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-tertiary/5">
+<section id="sponsor" class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-tertiary/5 scroll-animate">
     <!-- Decorative background elements -->
     <div class="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-0 right-0 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
@@ -243,7 +268,7 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-20 md:py-32 bg-surface">
+<section id="about" class="py-20 md:py-32 bg-surface scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="relative group">
@@ -294,6 +319,43 @@
     </div>
 </section>
 
+<!-- Venue Section -->
+<section id="venue" class="py-16 md:py-24 relative overflow-hidden bg-surface-container-low scroll-animate">
+    <!-- subtle highlight -->
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-tertiary/5 pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative z-10">
+        <div class="text-center venue-reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary font-headline text-xs font-bold uppercase tracking-widest mb-6">
+                <span class="material-symbols-outlined text-sm">location_on</span> Venue
+            </div>
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-4">
+                <span class="gradient-text">Venue</span>
+            </h2>
+
+            <div class="glass-card bg-surface-container-lowest/70 border border-outline-variant/20 rounded-[2rem] shadow-lg px-6 sm:px-10 py-10 md:py-12 max-w-3xl mx-auto">
+                <p class="font-headline text-2xl sm:text-3xl md:text-4xl font-extrabold text-on-background tracking-tight">
+                    National Institute of Technology Agartala
+                </p>
+                <p class="text-on-surface-variant text-base sm:text-lg mt-3 font-medium">
+                    Tripura, India
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <a href="https://www.google.com/maps?q=NIT+Agartala"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="group relative px-6 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-sm sm:text-base shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] transition-all duration-300 overflow-hidden inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <span class="material-symbols-outlined text-lg">map</span>
+                        Get Directions
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+                    </a>
+                </div>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-primary-container mx-auto rounded-full mt-6"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Invitation Section -->
 <section class="py-16 md:py-24 relative overflow-hidden bg-surface-container-low">
     <!-- Abstract BG patterns -->
@@ -318,7 +380,7 @@
 </section>
 
 <!-- Speakers Section -->
-<section id="speakers" class="py-20 md:py-32 bg-surface-container-low">
+<section id="speakers" class="py-20 md:py-32 bg-surface-container-low scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-16 md:mb-24">
             <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Distinguished <span class="gradient-text">Speakers</span></h2>
@@ -332,7 +394,7 @@
                 <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Keynote Speakers</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 speakers-card-grid">
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
                         <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
@@ -653,7 +715,7 @@
 </section>
 
 <!-- Committee Section -->
-<section id="committee" class="py-20 md:py-32 bg-surface-container-low">
+<section id="committee" class="py-20 md:py-32 bg-surface-container-low scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-20">
             <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background mb-4">Organizing <span class="gradient-text">Committee</span></h2>
@@ -956,7 +1018,7 @@
 
 
 <!-- Advisory Board Section -->
-<section id="advisory" class="py-20 md:py-32 bg-surface">
+<section id="advisory" class="py-20 md:py-32 bg-surface scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-16 md:mb-24">
             <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Advisory <span class="gradient-text">Board</span></h2>
@@ -1160,5 +1222,28 @@
 </footer>
 
 <script src="static/js/home.js"></script>
+<script>
+    (function () {
+        var venueEl = document.querySelector('.venue-reveal');
+        if (!venueEl) return;
+
+        // If IntersectionObserver isn't supported, just show it.
+        if (!('IntersectionObserver' in window)) {
+            venueEl.classList.add('is-visible');
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    venueEl.classList.add('is-visible');
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.15 });
+
+        observer.observe(venueEl);
+    })();
+</script>
 </body>
 </html>
