@@ -78,15 +78,15 @@
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 <!-- Navigation -->
-<nav class="glass-card rounded-full sticky top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-8 py-4 transition-all duration-300">
+<nav class="glass-card rounded-full sticky top-4 md:top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
     <a href="{{url_for('home')}}">
-    <div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
-        <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+    <div class="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
+        <span class="material-symbols-outlined text-2xl md:text-3xl">precision_manufacturing</span>
         ICETME–2027
     </div></a>
     
     <!-- Desktop Menu -->
-    <div class="hidden lg:flex gap-8">
+    <div id="desktop-nav-links" class="hidden lg:flex gap-8">
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('about')}}">About</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('travel')}}">Travel</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#advisory">Advisory Board</a>
@@ -98,10 +98,26 @@
     </div>
     
     <!-- Mobile Menu Button (Hidden on Desktop) -->
-    <button class="lg:hidden text-primary focus:outline-none">
-        <span class="material-symbols-outlined text-3xl">menu</span>
+    <button id="hamburger-btn" class="lg:hidden inline-flex items-center justify-center text-primary focus:outline-none" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu" type="button">
+        <span id="hamburger-icon" class="material-symbols-outlined text-3xl">menu</span>
     </button>
 </nav>
+
+<!-- Mobile Navigation Menu (fixed below pill navbar, hidden on desktop) -->
+<div id="mobile-menu"
+     class="mobile-menu-panel hidden lg:hidden"
+     aria-hidden="true">
+    <div class="flex flex-col divide-y divide-outline-variant/20">
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="{{url_for('about')}}">About</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="{{url_for('travel')}}">Travel</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#advisory">Advisory Board</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#dates">Important Dates</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#papers">Call for Papers</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#committee">Committee</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#contact">Contact</a>
+        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="{{url_for('register')}}">Registration</a>
+    </div>
+</div>
 
 <!-- Hero Section -->
 <header id="home" class="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-cover bg-center bg-no-repeat" 
@@ -113,51 +129,51 @@
         <div class="absolute bottom-[20%] left-[40%] w-72 h-72 bg-primary-container/20 rounded-full mix-blend-multiply filter blur-2xl opacity-100 animate-blob animation-delay-4000"></div>
     </div>
 
-    <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
         <div>
         </div>
-        <h1 class="font-headline text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-black drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h1 class="font-headline text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-black drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] mb-6 animate-fade-in-up break-words" style="animation-delay: 0.1s;">
             ICETME<span class="text-primary animate-pulse inline-block">–</span>2027
         </h1>
         
-        <p class="font-headline text-2xl md:text-3xl text-black drop-shadow-md max-w-4xl mx-auto mb-12 leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
+        <p class="font-headline text-lg sm:text-2xl md:text-3xl text-black drop-shadow-md max-w-4xl mx-auto mb-12 leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
             International Conference on <span class="gradient-text font-bold">Emerging Trends</span> in Mechanical Engineering
         </p>
-        <div class="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-headline text-sm font-bold uppercase tracking-widest animate-fade-in-up backdrop-blur-sm">
+        <div class="inline-flex items-center gap-2 mb-8 px-4 sm:px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-headline text-xs sm:text-sm font-bold uppercase tracking-[0.2em] sm:tracking-widest animate-fade-in-up backdrop-blur-sm max-w-full">
             <span class="relative flex h-3 w-3">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-100"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
             </span>
             Hybrid Mode
         </div>
-        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16 animate-fade-in-up" style="animation-delay: 0.3s;">
-            <div class="flex items-center gap-3 glass-card px-6 py-4 rounded-2xl shadow-sm">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16 animate-fade-in-up w-full" style="animation-delay: 0.3s;">
+            <div class="flex items-center gap-3 glass-card px-4 sm:px-6 py-4 rounded-2xl shadow-sm w-full md:w-auto max-w-md">
                 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <span class="material-symbols-outlined text-primary">account_balance</span>
                 </div>
-                <div class="text-left">
+                <div class="text-left min-w-0">
                     <p class="text-xs text-on-surface-variant font-bold uppercase tracking-wide">Hosted By</p>
                     <p class="font-bold text-on-background">Department of Mechanical Engineering,<br>NIT Agartala</p>
                 </div>
 
             </div>
             
-            <div class="flex items-center gap-3 glass-card px-6 py-4 rounded-2xl shadow-sm">
+            <div class="flex items-center gap-3 glass-card px-4 sm:px-6 py-4 rounded-2xl shadow-sm w-full md:w-auto max-w-md">
                 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <span class="material-symbols-outlined text-primary">calendar_month</span>
                 </div>
-                <div class="text-left">
+                <div class="text-left min-w-0">
                     <p class="text-xs text-on-surface-variant font-bold uppercase tracking-wide">Date</p>
                     <p class="font-bold text-on-background">19–21 February 2027</p>
                 </div>
             </div>
         </div>
         
-        <div class="flex flex-col sm:flex-row justify-center gap-5 animate-fade-in-up" style="animation-delay: 0.4s;">
-            <a href="{{url_for('register')}}" class="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row justify-center gap-5 animate-fade-in-up w-full sm:w-auto" style="animation-delay: 0.4s;">
+            <a href="{{url_for('register')}}" class="group relative px-6 sm:px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-base sm:text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex items-center justify-center gap-2 w-full sm:w-auto">
                 <span class="relative z-10 flex items-center gap-2">Registration <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
             </a>
-            <a href="{{url_for('about')}}" class="px-8 py-4 glass-card text-on-surface rounded-full font-headline font-bold text-lg hover:bg-white transition-colors duration-300 flex items-center gap-2 group">
+            <a href="{{url_for('about')}}" class="px-6 sm:px-8 py-4 glass-card text-on-surface rounded-full font-headline font-bold text-base sm:text-lg hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2 group w-full sm:w-auto">
                 Explore More <span class="material-symbols-outlined text-primary group-hover:animate-bounce">expand_more</span>
             </a>
         </div>
@@ -173,14 +189,14 @@
 </header>
 
 <!-- About Section -->
-<section id="about" class="py-32 bg-surface">
-    <div class="container mx-auto px-6 max-w-7xl">
+<section id="about" class="py-20 md:py-32 bg-surface">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="relative group">
                 <div class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-tertiary/20 rounded-[2.5rem] blur-2xl opacity-60 group-hover:opacity-100 transition duration-700"></div>
-                <img class="relative rounded-[2rem] shadow-2xl w-full h-[550px] object-cover transition-transform duration-700 group-hover:scale-[1.02]" alt="Global collaboration in mechanical engineering" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"/>
+                <img class="relative rounded-[2rem] shadow-2xl w-full h-[320px] sm:h-[420px] md:h-[550px] object-cover transition-transform duration-700 group-hover:scale-[1.02]" alt="Global collaboration in mechanical engineering" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"/>
                 <!-- Floating badge -->
-                <div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-3xl shadow-xl animate-float">
+                <div class="absolute bottom-4 left-4 md:-bottom-6 md:-left-6 glass-card p-4 sm:p-6 rounded-3xl shadow-xl animate-float max-w-[calc(100%-2rem)] md:max-w-none">
                     <div class="flex items-center gap-4">
                         <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined text-3xl">public</span>
@@ -196,7 +212,7 @@
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary font-headline text-xs font-bold uppercase tracking-widest mb-6">
                     <span class="material-symbols-outlined text-sm">info</span> Conference
                 </div>
-                <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight text-on-background leading-tight">
+                <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight text-on-background leading-tight">
                     Fostering Innovation in <br><span class="gradient-text">Mechanical Systems.</span>
                 </h2>
                 <p class="text-on-surface-variant text-lg leading-relaxed mb-6 font-medium">
@@ -205,7 +221,7 @@
                 <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
                     Our goal is to foster deep collaboration across the globe, merging cutting-edge theoretical research with realistic industrial scale applications. Participate in keynote sessions, paper presentations, and extensive networking opportunities to drive the future of engineering.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <div class="p-6 rounded-3xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm card-hover">
                         <span class="material-symbols-outlined text-primary text-3xl mb-3">lightbulb</span>
                         <h3 class="text-lg font-bold text-on-background mb-1">Innovation</h3>
@@ -225,20 +241,20 @@
 </section>
 
 <!-- Invitation Section -->
-<section class="py-24 relative overflow-hidden bg-surface-container-low">
+<section class="py-16 md:py-24 relative overflow-hidden bg-surface-container-low">
     <!-- Abstract BG patterns -->
     <div class="absolute top-0 right-0 w-[50vw] h-full bg-gradient-to-l from-primary/5 to-transparent skew-x-12"></div>
-    <div class="container mx-auto px-6 max-w-6xl relative z-10">
-        <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-12 md:p-20 rounded-[3rem] shadow-2xl text-center relative overflow-hidden card-hover">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative z-10">
+        <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-6 sm:p-10 md:p-20 rounded-[2rem] md:rounded-[3rem] shadow-2xl text-center relative overflow-hidden card-hover">
             <!-- decorative circles -->
             <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-tertiary/10 rounded-full blur-3xl"></div>
             
             <div class="relative z-10">
-                <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
                     <span class="material-symbols-outlined text-4xl text-primary">mail</span>
                 </div>
-                <h2 class="font-headline text-3xl md:text-4xl font-bold mb-8 text-on-background leading-relaxed">
+                <h2 class="font-headline text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-on-background leading-relaxed">
                     "The Department of Mechanical Engineering at NIT Agartala warmly welcomes all participants and advisory board members to ICETME–2027. Join us in hybrid mode for this premier global exchange of engineering innovation and research excellence."
                 </h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-primary to-primary-container mx-auto rounded-full mt-6"></div>
@@ -248,18 +264,18 @@
 </section>
 
 <!-- Speakers Section -->
-<section id="speakers" class="py-32 bg-surface-container-low">
-    <div class="container mx-auto px-6 max-w-7xl">
-        <div class="text-center mb-24">
-            <h2 class="font-headline text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Distinguished <span class="gradient-text">Speakers</span></h2>
-            <p class="text-xl text-on-surface-variant max-w-2xl mx-auto">Hear from leading experts and academicians across the globe.</p>
+<section id="speakers" class="py-20 md:py-32 bg-surface-container-low">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+        <div class="text-center mb-16 md:mb-24">
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Distinguished <span class="gradient-text">Speakers</span></h2>
+            <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto">Hear from leading experts and academicians across the globe.</p>
         </div>
 
         <!-- Plenary Speakers -->
         <div class="mb-24">
-            <div class="flex items-center gap-4 mb-12">
+            <div class="flex items-center gap-4 mb-12 flex-wrap">
                 <span class="material-symbols-outlined text-4xl text-primary">campaign</span>
-                <h3 class="font-headline text-3xl font-bold text-on-background">Plenary Speakers</h3>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Plenary Speakers</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -316,9 +332,9 @@
 
         <!-- Keynote Speakers -->
         <div class="mb-24">
-            <div class="flex items-center gap-4 mb-12">
+            <div class="flex items-center gap-4 mb-12 flex-wrap">
                 <span class="material-symbols-outlined text-4xl text-primary">mic</span>
-                <h3 class="font-headline text-3xl font-bold text-on-background">Keynote Speakers</h3>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Keynote Speakers</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -424,9 +440,9 @@
 
         <!-- Session Speakers -->
         <div>
-            <div class="flex items-center gap-4 mb-12">
+            <div class="flex items-center gap-4 mb-12 flex-wrap">
                 <span class="material-symbols-outlined text-4xl text-primary">record_voice_over</span>
-                <h3 class="font-headline text-3xl font-bold text-on-background">Session Speakers</h3>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Session Speakers</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -476,10 +492,10 @@
 </section>
 
 <!-- Important Dates -->
-<section id="dates" class="py-32 bg-background relative border-y border-outline-variant/10">
+<section id="dates" class="py-20 md:py-32 bg-background relative border-y border-outline-variant/10">
     <div class="absolute right-0 top-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-    <div class="container mx-auto px-6 max-w-7xl">
-        <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-center mb-20 text-on-background tracking-tight">Important <span class="gradient-text">Dates</span></h2>
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+        <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-14 md:mb-20 text-on-background tracking-tight">Important <span class="gradient-text">Dates</span></h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="relative bg-surface p-8 rounded-[2rem] border-t-4 border-primary shadow-lg card-hover">
@@ -522,10 +538,10 @@
 </section>
 
 <!-- Call for Papers Section -->
-<section id="papers" class="py-32 bg-surface overflow-hidden">
-    <div class="container mx-auto px-6 max-w-7xl">
+<section id="papers" class="py-20 md:py-32 bg-surface overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-20 animate-fade-in-up">
-            <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-background mb-4">
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background mb-4">
                 Call for <span class="gradient-text">Papers</span>
             </h2>
             <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">
@@ -539,7 +555,7 @@
                     <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:rotate-6 transition-all duration-500 shadow-sm">
                         <span class="material-symbols-outlined text-4xl text-primary group-hover:text-white transition-colors">precision_manufacturing</span>
                     </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Track 1: Smart Materials, Advanced Manufacturing & Sustainable Production Systems</h3>
+                    <h3 class="font-headline text-xl sm:text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Track 1: Smart Materials, Advanced Manufacturing & Sustainable Production Systems</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors duration-500">
                         Advanced materials, composites, biomaterials, materials characterization, powder metallurgy, surface engineering, conventional and non-conventional manufacturing (machining, welding, casting, forming), micro- and nano-manufacturing, digital manufacturing, Industry 4.0/5.0, CAD/CAM, product lifecycle management, product design, supply chain management, maintenance engineering, reliability and quality engineering. [cite: 9]
                     </p>
@@ -554,7 +570,7 @@
                     <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:rotate-6 transition-all duration-500 shadow-sm">
                         <span class="material-symbols-outlined text-4xl text-primary group-hover:text-white transition-colors">cognition</span>
                     </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Track 2: Intelligent Design, Computational Mechanics & Autonomous Systems</h3>
+                    <h3 class="font-headline text-xl sm:text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Track 2: Intelligent Design, Computational Mechanics & Autonomous Systems</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors duration-500">
                         Engineering mechanics, structural analysis, computational mechanics, modelling and simulation, optimization, machine learning and AI applications, vibrations, multi-body dynamics, tribology, fatigue and failure analysis, machines and mechanisms, robotics, mechatronics, sensors and actuators, control systems, UAVs/MAVs, avionics, aerospace structures, flight mechanics, testing and simulation, uncertainty quantification. [cite: 10]
                     </p>
@@ -569,7 +585,7 @@
                     <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:rotate-6 transition-all duration-500 shadow-sm">
                         <span class="material-symbols-outlined text-4xl text-primary group-hover:text-white transition-colors">mode_fan</span>
                     </div>
-                    <h3 class="font-headline text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Track 3: Thermal Sciences, Fluid Dynamics & Sustainable Energy Technologies</h3>
+                    <h3 class="font-headline text-xl sm:text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Track 3: Thermal Sciences, Fluid Dynamics & Sustainable Energy Technologies</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed group-hover:text-on-surface transition-colors duration-500">
                         Thermodynamics, heat and mass transfer, thermal management, computational and experimental fluid dynamics, multiphase flows, turbulence, fluid-structure interaction, Newtonian and non-Newtonian fluids, aerodynamics, aeroacoustics, propulsion, combustion, IC engines, alternative fuels, refrigeration and air conditioning, renewable energy systems, energy conversion and storage, phase-change phenomena, fluid machinery. [cite: 11]
                     </p>
@@ -583,15 +599,15 @@
 </section>
 
 <!-- Committee Section -->
-<section id="committee" class="py-32 bg-surface-container-low">
-    <div class="container mx-auto px-6 max-w-7xl">
+<section id="committee" class="py-20 md:py-32 bg-surface-container-low">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-20">
-            <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-background mb-4">Organizing <span class="gradient-text">Committee</span></h2>
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background mb-4">Organizing <span class="gradient-text">Committee</span></h2>
             <p class="text-lg text-on-surface-variant">The dedicated team behind ICETME–2027.</p>
         </div>
 
         <!-- Top Leaders -->
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
     <div class="glass-card p-10 rounded-3xl text-center border-t-4 border-primary card-hover flex flex-col items-center">
         <p class="text-primary font-bold text-xs uppercase tracking-widest mb-6">Chief Patron</p>
         <div class="w-28 h-28 mb-6 relative group">
@@ -633,7 +649,7 @@
 </div>
 
         <!-- Chairs -->
-        <div class="grid md:grid-cols-2 gap-8 mb-16 px-0 md:px-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 px-0 md:px-20 lg:px-32">
         <div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
             <div class="w-24 h-24 mb-4 relative group">
                 <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
@@ -700,9 +716,9 @@
 
         <!-- Student Committee -->
         <div class="mt-24">
-            <div class="flex items-center gap-4 mb-12">
+            <div class="flex items-center gap-4 mb-12 flex-wrap">
                 <span class="material-symbols-outlined text-4xl text-primary">groups</span>
-                <h3 class="font-headline text-3xl font-bold text-on-background">Student Committee</h3>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Student Committee</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
@@ -737,18 +753,18 @@
 
 
 <!-- Advisory Board Section -->
-<section id="advisory" class="py-32 bg-surface">
-    <div class="container mx-auto px-6 max-w-7xl">
-        <div class="text-center mb-24">
-            <h2 class="font-headline text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Advisory <span class="gradient-text">Board</span></h2>
-            <p class="text-xl text-on-surface-variant max-w-2xl mx-auto">Eminent academicians and researchers guiding the conference towards excellence.</p>
+<section id="advisory" class="py-20 md:py-32 bg-surface">
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+        <div class="text-center mb-16 md:mb-24">
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Advisory <span class="gradient-text">Board</span></h2>
+            <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto">Eminent academicians and researchers guiding the conference towards excellence.</p>
         </div>
 
         <!-- International -->
         <div class="mb-24">
-            <div class="flex items-center gap-4 mb-12">
+            <div class="flex items-center gap-4 mb-12 flex-wrap">
                 <span class="material-symbols-outlined text-4xl text-primary">public</span>
-                <h3 class="font-headline text-3xl font-bold text-on-background">International Advisory Committee</h3>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">International Advisory Committee</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -786,9 +802,9 @@
 
         <!-- National -->
         <div>
-            <div class="flex items-center gap-4 mb-12">
+            <div class="flex items-center gap-4 mb-12 flex-wrap">
                 <span class="material-symbols-outlined text-4xl text-primary">flag</span>
-                <h3 class="font-headline text-3xl font-bold text-on-background">National Advisory committee</h3>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">National Advisory committee</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -871,7 +887,7 @@
 <!-- Footer -->
 <footer id="contact" class="bg-slate-900 text-slate-300 w-full pt-20 pb-8 relative overflow-hidden">
     <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-0"></div>
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div class="lg:col-span-1">
                 <div class="text-2xl font-extrabold tracking-tighter text-white font-headline mb-6 flex items-center gap-2">

@@ -72,8 +72,113 @@
 }
 
 
+/* ─── Mobile Menu Panel ─────────────────────────────────────────── */
 
+/*
+ * Fixed positioning so the panel always renders directly below the
+ * sticky pill navbar (top-6 nav ≈ 24px + ~68px nav height = ~92px).
+ * Hidden by default via pointer-events/opacity; shown via .open class.
+ * lg:hidden in HTML prevents it appearing on desktop at all.
+ */
+.mobile-menu-panel {
+    position: fixed;
+    top: 84px;                          /* just below the pill nav       */
+    left: 50%;
+    transform: translateX(-50%) translateY(-12px);
+    width: 92%;
+    max-width: 80rem;                   /* matches max-w-7xl              */
+    z-index: 45;
 
+    /* Glass card styling matching the nav pill */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(195, 197, 217, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-radius: 1.25rem;             /* rounded-2xl                   */
+    overflow: hidden;
 
+    /* Slide-down animation — hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
 
+.mobile-menu-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Individual menu links */
+.mobile-menu-item {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #434656;
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:focus {
+    background-color: rgba(236, 238, 240, 0.7);  /* surface-container */
+    color: #003ec7;                               /* primary           */
+    outline: none;
+}
+
+@media (max-width: 1023px) {
+    #desktop-nav-links {
+        display: none !important;
+    }
+
+    .mobile-menu-panel {
+        top: 78px;
+        width: 95%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #desktop-nav-links {
+        display: flex !important;
+    }
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 767px) {
+    .card-hover:hover {
+        transform: none;
+    }
+
+    header#home,
+    section,
+    footer,
+    .container,
+    .glass-card {
+        max-width: 100%;
+    }
+
+    header#home h1,
+    header#home h2,
+    section h2,
+    section h3,
+    section h4,
+    footer h4,
+    footer h5,
+    p,
+    span,
+    a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
 
