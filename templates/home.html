@@ -98,7 +98,7 @@
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 <!-- Navigation -->
-<nav class="glass-card rounded-full sticky top-4 md:top-6 z-50 max-w-7xl mx-auto flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
+<nav class="glass-card rounded-full fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-50 max-w-7xl flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
     <a href="{{url_for('home')}}">
     <div class="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
         <span class="material-symbols-outlined text-2xl md:text-3xl">precision_manufacturing</span>
@@ -209,7 +209,7 @@
 </header>
 
 <!-- Sponsor Section -->
-<section id="sponsor" class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-tertiary/5">
+<section id="sponsor" class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-tertiary/5 scroll-animate">
     <!-- Decorative background elements -->
     <div class="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-0 right-0 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
@@ -263,7 +263,7 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-20 md:py-32 bg-surface">
+<section id="about" class="py-20 md:py-32 bg-surface scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="relative group">
@@ -315,7 +315,7 @@
 </section>
 
 <!-- Venue Section -->
-<section id="venue" class="py-16 md:py-24 relative overflow-hidden bg-surface-container-low">
+<section id="venue" class="py-16 md:py-24 relative overflow-hidden bg-surface-container-low scroll-animate">
     <!-- subtle highlight -->
     <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-tertiary/5 pointer-events-none"></div>
 
@@ -375,7 +375,7 @@
 </section>
 
 <!-- Speakers Section -->
-<section id="speakers" class="py-20 md:py-32 bg-surface-container-low">
+<section id="speakers" class="py-20 md:py-32 bg-surface-container-low scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-16 md:mb-24">
             <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Distinguished <span class="gradient-text">Speakers</span></h2>
@@ -710,7 +710,7 @@
 </section>
 
 <!-- Committee Section -->
-<section id="committee" class="py-20 md:py-32 bg-surface-container-low">
+<section id="committee" class="py-20 md:py-32 bg-surface-container-low scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-20">
             <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background mb-4">Organizing <span class="gradient-text">Committee</span></h2>
@@ -1013,7 +1013,7 @@
 
 
 <!-- Advisory Board Section -->
-<section id="advisory" class="py-20 md:py-32 bg-surface">
+<section id="advisory" class="py-20 md:py-32 bg-surface scroll-animate">
     <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div class="text-center mb-16 md:mb-24">
             <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Advisory <span class="gradient-text">Board</span></h2>

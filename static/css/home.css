@@ -149,6 +149,125 @@ body {
     overflow-x: hidden;
 }
 
+/* ─── Scroll Animations ─────────────────────────────────── */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+}
+
+.scroll-animate.fade-up {
+    transform: translateY(30px);
+}
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate.fade-in {
+    transform: translateY(0);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* Smart Navbar Styles */
+nav {
+    /* Ensure proper fixed positioning */
+    position: fixed !important;
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 50 !important;
+}
+
+@media (min-width: 768px) {
+    nav {
+        top: 1.5rem !important;
+    }
+}
+
+.navbar-scrolled {
+    /* Shrink effect */
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-scrolled .text-lg,
+.navbar-scrolled .text-xl,
+.navbar-scrolled .text-2xl {
+    font-size: 1rem !important;
+}
+
+.navbar-scrolled .material-symbols-outlined {
+    font-size: 1.5rem !important;
+}
+
+.navbar-glass-scrolled {
+    /* Enhanced glass effect on scroll */
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(0, 62, 199, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 62, 199, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.nav-link-active {
+    color: #003ec7 !important;
+    font-weight: 600 !important;
+}
+
+.nav-link-active::after {
+    width: 100% !important;
+    background: linear-gradient(90deg, #003ec7, #0052ff) !important;
+    height: 2px !important;
+    bottom: -2px !important;
+}
+
+/* Mobile menu active state */
+.mobile-menu-item-active {
+    background-color: rgba(0, 62, 199, 0.1) !important;
+    color: #003ec7 !important;
+    font-weight: 600 !important;
+}
+
+/* Responsive adjustments for scrolled navbar */
+@media (max-width: 640px) {
+    .navbar-scrolled {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    .navbar-scrolled .text-lg {
+        font-size: 1.125rem !important;
+    }
+    
+    .navbar-scrolled .material-symbols-outlined {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* Add top padding to body to account for fixed navbar */
+body {
+    padding-top: 80px !important;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 70px !important;
+    }
+}
+
 img {
     display: block;
     max-width: 100%;
