@@ -43,8 +43,9 @@
           }
         }
     </script>
-    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/about.css">
 
+    <!-- HAMBURGER MENU STYLES -->
     <style>
         #nav-wrapper { position: relative; }
 
@@ -78,6 +79,7 @@
 
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
+    <!-- NAV WRAPPER: gives #mobile-menu an absolute positioning anchor -->
     <div id="nav-wrapper" class="sticky top-6 z-50 max-w-7xl mx-auto w-[95%]">
 
         <!-- Pill nav bar -->
@@ -88,16 +90,27 @@
                 <div
                     class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
                     <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
-                    ICETME–2027
+                    ICETME-2027
                 </div>
             </a>
 
             <!-- Desktop links -->
             <div class="hidden lg:flex gap-8">
+<<<<<<< HEAD
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('home')}}">Home</a>
                 <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="{{url_for('about')}}">About</a>
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('travel')}}">Travel</a>
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('register')}}">Registration</a>
+=======
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary"
+                    href="{{url_for('register')}}">Registration</a>
+>>>>>>> f63f4e716a875dab27fce27ad7beb5807b26548e
             </div>
 
             <!-- Hamburger button -->
@@ -113,11 +126,19 @@
             <div class="flex flex-col gap-1 px-5 py-4">
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
                     href="{{url_for('home')}}">Home</a>
+<<<<<<< HEAD
                 <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5"
                     href="{{url_for('about')}}">About</a>
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
                     href="{{url_for('travel')}}">Travel</a>
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+=======
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5"
+>>>>>>> f63f4e716a875dab27fce27ad7beb5807b26548e
                     href="{{url_for('register')}}">Registration</a>
             </div>
         </div>
@@ -264,7 +285,7 @@
     </div>
 </footer>
 
-<script src="{{ url_for('static', path='/js/registration.js') }}"></script>
+<script src="/static/js/about.js"></script>
 
 <script>
     (function () {
