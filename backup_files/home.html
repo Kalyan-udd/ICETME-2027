@@ -9,58 +9,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-        @theme {
-            --color-primary: #003ec7;
-            --color-primary-container: #0052ff;
-            --color-on-primary: #ffffff;
-            --color-on-primary-container: #dfe3ff;
-            --color-primary-fixed: #dde1ff;
-            --color-on-primary-fixed: #001452;
-            --color-secondary: #515f74;
-            --color-secondary-container: #d5e3fc;
-            --color-on-secondary: #ffffff;
-            --color-on-secondary-container: #57657a;
-            --color-tertiary: #005569;
-            --color-tertiary-container: #006f89;
-            --color-on-tertiary: #ffffff;
-            --color-on-tertiary-container: #bcecff;
-            --color-background: #f7f9fb;
-            --color-on-background: #191c1e;
-            --color-surface: #f7f9fb;
-            --color-on-surface: #191c1e;
-            --color-surface-variant: #e0e3e5;
-            --color-on-surface-variant: #434656;
-            --color-outline: #737688;
-            --color-outline-variant: #c3c5d9;
-            --color-surface-container-lowest: #ffffff;
-            --color-surface-container-low: #f2f4f6;
-            --color-surface-container: #eceef0;
-            --color-surface-container-high: #e6e8ea;
-            --font-headline: "Space Grotesk", sans-serif;
-            --font-body: "Inter", sans-serif;
-            --animate-blob: blob 7s infinite;
-            --animate-float: float 6s ease-in-out infinite;
-            --animate-fade-in-up: fadeInUp 1s ease-out forwards;
-            --animate-bounce-slow: bounce 3s infinite;
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                  "primary": "#003ec7",
+                  "primary-container": "#0052ff",
+                  "on-primary": "#ffffff",
+                  "on-primary-container": "#dfe3ff",
+                  "primary-fixed": "#dde1ff",
+                  "on-primary-fixed": "#001452",
+                  "secondary": "#515f74",
+                  "secondary-container": "#d5e3fc",
+                  "on-secondary": "#ffffff",
+                  "on-secondary-container": "#57657a",
+                  "tertiary": "#005569",
+                  "tertiary-container": "#006f89",
+                  "on-tertiary": "#ffffff",
+                  "on-tertiary-container": "#bcecff",
+                  "background": "#f7f9fb",
+                  "on-background": "#191c1e",
+                  "surface": "#f7f9fb",
+                  "on-surface": "#191c1e",
+                  "surface-variant": "#e0e3e5",
+                  "on-surface-variant": "#434656",
+                  "outline": "#737688",
+                  "outline-variant": "#c3c5d9",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-container-low": "#f2f4f6",
+                  "surface-container": "#eceef0",
+                  "surface-container-high": "#e6e8ea"
+              },
+              fontFamily: {
+                  "headline": ["Space Grotesk", "sans-serif"],
+                  "body": ["Inter", "sans-serif"]
+              },
+              animation: {
+                  'blob': 'blob 7s infinite',
+                  'float': 'float 6s ease-in-out infinite',
+                  'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                  'bounce-slow': 'bounce 3s infinite'
+              },
+              keyframes: {
+                  blob: {
+                      '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                      '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                      '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                      '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                  },
+                  float: {
+                      '0%, 100%': { transform: 'translateY(0)' },
+                      '50%': { transform: 'translateY(-15px)' }
+                  },
+                  fadeInUp: {
+                      '0%': { opacity: '0', transform: 'translateY(20px)' },
+                      '100%': { opacity: '1', transform: 'translateY(0)' }
+                  }
+              }
+            }
+          }
         }
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-    <link rel="stylesheet" href="/static/css/theme.css">
+    </script>
     <link rel="stylesheet" href="static/css/home.css">
     <style>
         /* Scoped to the new Venue section only */
@@ -86,7 +98,7 @@
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 <!-- Navigation -->
-<nav class="glass-card rounded-full fixed top-4 md:top-6 left-0 right-0 mx-auto z-50 max-w-7xl flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
+<nav class="glass-card rounded-full fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-50 max-w-7xl flex justify-between items-center w-[95%] px-4 sm:px-6 lg:px-8 py-3 md:py-4 transition-all duration-300">
     <a href="{{url_for('home')}}">
     <div class="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
         <span class="material-symbols-outlined text-2xl md:text-3xl">precision_manufacturing</span>
@@ -230,7 +242,7 @@
                         <img 
                             src="/static/images/Sponsor/Nesac.jpg.jpeg" 
                             alt="NESAC - North Eastern Space Applications Centre" 
-        
+                            onerror="this.onerror=null; this.src='/static/images/placeholder.png';"
                             class="w-full h-auto object-contain rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                         />
                     </div>
@@ -384,84 +396,48 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/international_advisory/a_senthil_kumar.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/international_advisory/a_senthil_kumar.jpeg" alt="Prof. A Senthil Kumar" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. A Senthil Kumar</h4>
                     <p class="text-sm text-primary font-semibold">National University of Singapore</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/international_advisory/Bidyut_Baran_Saha.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/international_advisory/Bidyut_Baran_Saha.jpeg" alt="Prof. Bidyut Baran Saha" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Bidyut Baran Saha</h4>
                     <p class="text-sm text-primary font-semibold">Kyushu University, Japan</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/gautam_biswas.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/gautam_biswas.png" alt="Prof. A Senthil Kumar" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Gautam Biswas</h4>
                     <p class="text-sm text-primary font-semibold">Birla Institute of Technology and Science, Pilani</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/international_advisory/j_paulo_davim.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/international_advisory/j_paulo_davim.jpeg" alt="Prof. J. Paulo Davim" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. J. Paulo Davim</h4>
                     <p class="text-sm text-primary font-semibold">University of Aveiro, Portugal</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/international_advisory/kalyanmoy_deb.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/international_advisory/kalyanmoy_deb.jpeg" alt="Prof. Kalyanmoy Deb" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Kalyanmoy Deb</h4>
                     <p class="text-sm text-primary font-semibold">Michigan State University, USA</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/international_advisory/xiaolin_wang.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/international_advisory/xiaolin_wang.jpeg" alt="Prof. Xiaolin Wang" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Xiaolin Wang</h4>
                     <p class="text-sm text-primary font-semibold">University of Tasmania, Australia</p>
@@ -478,14 +454,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 speakers-card-grid">
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/international_advisory/a_c_benim.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/international_advisory/a_c_benim.jpeg" alt="Prof. A. C. Benim" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. A. C. Benim</h4>
                     <p class="text-sm text-primary font-semibold">Düsseldorf University of Applied Sciences, Germany</p>
@@ -493,154 +463,88 @@
                 
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/amitava_de.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/amitava_de.png" alt="Prof. Amitava De" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Amitava De</h4>
                     <p class="text-sm text-primary font-semibold">IIT Bombay</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/g_k_ananthasuresh.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/g_k_ananthasuresh.png" alt="Prof. G. K. Ananthasuresh" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. G. K. Ananthasuresh</h4>
                     <p class="text-sm text-primary font-semibold">IISc Bangalore</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/kaushik_pal.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/kaushik_pal.png" alt="Prof. Kaushik Pal" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Kaushik Pal</h4>
                     <p class="text-sm text-primary font-semibold">IIT Roorkee</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/rajat_gupta.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/rajat_gupta.png" alt="Prof. Rajat Gupta" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Rajat Gupta</h4>
                     <p class="text-sm text-primary font-semibold">Veltech University</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/s_p_agarwal.jpg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/s_p_agarwal.jpg" alt="Dr. S. P. Aggarwal" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Dr. S. P. Aggarwal</h4>
                     <p class="text-sm text-primary font-semibold">Director, NESAC (ISRO)</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/sreedhara_sheshadri.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/sreedhara_sheshadri.png" alt="Prof. Sreedhara Sheshadri" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Sreedhara Sheshadri</h4>
                     <p class="text-sm text-primary font-semibold">IIT Bombay</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/subrata_sarkar.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/subrata_sarkar.png" alt="Prof. Subrata Sarkar" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Subrata Sarkar</h4>
                     <p class="text-sm text-primary font-semibold">IIT Kanpur</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/sudarshan_kumar.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/sudarshan_kumar.png" alt="Prof. Sudarshan Kumar" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Sudarshan Kumar</h4>
                     <p class="text-sm text-primary font-semibold">IIT Bombay</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/sudharshan_ghosh.jpeg" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/sudharshan_ghosh.jpeg" alt="Prof. Sudarshan Ghosh" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Sudarshan Ghosh</h4>
                     <p class="text-sm text-primary font-semibold">IIT Delhi</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/us_dixit.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/us_dixit.png" alt="Prof. Sudarshan Ghosh" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. U.S.Dixit</h4>
                     <p class="text-sm text-primary font-semibold">IIT Guwahati</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
                     <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    
-                    <img 
-                        src="/static/images/national_advisory/rk_garg.png" 
-                        alt="Dr. S. P. Agarwal" 
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
-                        onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
-                    >
+                        <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                        <img src="/static/images/national_advisory/rk_garg.png" alt="Prof. Sudarshan Ghosh" onerror="this.onerror=null; this.src='/static/images/placeholder.png';" class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. R.K.Garg</h4>
                     <p class="text-sm text-primary font-semibold">NIT Jalandhar</p>
@@ -823,7 +727,7 @@
             <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
             <img src="/static/images/organising/sarath_kumar_patra.png" 
                  alt="Director" 
- 
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
                  class="relative w-full h-full object-cover rounded-full border-4 border-primary/10 shadow-lg">
         </div>
         <h3 class="text-2xl font-bold font-headline mb-2 text-on-surface">Director</h3>
@@ -835,7 +739,7 @@
             <div class="absolute inset-0 bg-tertiary/10 rounded-full group-hover:bg-tertiary/20 transition-colors"></div>
             <img src="/static/images/organising/dean_academic.png" 
                  alt="Dean (Academic)" 
- 
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
                  class="relative w-full h-full object-cover rounded-full border-4 border-tertiary/10 shadow-lg">
         </div>
         <h3 class="text-2xl font-bold font-headline mb-2 text-on-surface">Dean (Academic)</h3>
@@ -848,7 +752,7 @@
             <div class="absolute inset-0 bg-tertiary/10 rounded-full group-hover:bg-tertiary/20 transition-colors"></div>
             <img src="/static/images/organising/dean_r_and_c.png" 
                  alt="Dean (R&C)" 
- 
+                 onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
                  class="relative w-full h-full object-cover rounded-full border-4 border-tertiary/10 shadow-lg">
         </div>
         <h3 class="text-2xl font-bold font-headline mb-2 text-on-surface">Dean (R&C)</h3>
@@ -866,10 +770,12 @@
                 <br>
             <div class="w-24 h-24 mb-4 relative group">
                 
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
+                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
+                    
+                </div>
                 <img src="/static/images/organising/rajsekharpanua.jpeg" 
                     alt="Dr. Rajsekhar Panua" 
- 
+                    onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
                     class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
             </div>
             <h4 class="font-headline font-bold text-xl mb-1 text-on-surface">Dr. Rajsekhar Panua (HOD)</h4>
@@ -884,7 +790,7 @@
                 <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
                 <img src="/static/images/organising/pritam_das.png" 
                     alt="Dr. Pritam Das" 
- 
+                    onerror="this.onerror=null; this.src='/static/images/placeholder.png';" 
                     class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
             </div>
             <h4 class="font-headline font-bold text-xl mb-1 text-on-surface">Dr. Pritam Das</h4>
@@ -900,76 +806,29 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
         
         <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-            <div class="w-24 h-24 mb-4 relative group">
-                
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                <img src="/static/images/organising/arindam_majumedar.png" 
-                    alt="Dr. Arindam Majumder"  
-                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-            </div>
             <h4 class="font-headline font-extrabold text-[17px] text-on-surface leading-tight text-center mb-1">Dr. Arindam Majumder</h4>
             <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
         </div>
         <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-            <div class="w-24 h-24 mb-4 relative group">
-                
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                <img src="/static/images/organising/deepak_chandra_das.png" 
-                    alt="Dr. Deepak Chandra Das" 
-                    
-                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-            </div>
             <h4 class="font-headline font-extrabold text-[17px] text-on-surface leading-tight text-center mb-1">Dr. Dipak Chandra Das</h4>
             <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
         </div>
 
         <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-            <div class="w-24 h-24 mb-4 relative group">
-                
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                <img src="/static/images/organising/madhujit_deb.png" 
-                    alt="Dr. Madhujit Deb" 
-                    
-                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-            </div>
             <h4 class="font-headline font-extrabold text-[17px] text-on-surface leading-tight text-center mb-1">Dr. Madhujit Deb</h4>
             <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
         </div>
 
         <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-            <div class="w-24 h-24 mb-4 relative group">
-                
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                <img src="/static/images/organising/paramvir_singh.png" 
-                    alt="Dr. Paramvir Singh" 
-                    
-                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-            </div>
             <h4 class="font-headline font-extrabold text-[17px] text-on-surface leading-tight text-center mb-1">Dr. Paramvir Singh</h4>
             <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
         </div>
         <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-            <div class="w-24 h-24 mb-4 relative group">
-                
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                <img src="/static/images/organising/ravivarman.png" 
-                    alt="Dr. Ravivarman R" 
-                    
-                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-            </div>
             <h4 class="font-headline font-extrabold text-[17px] text-on-surface leading-tight text-center mb-1">Dr. Ravivarman R</h4>
             <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
         </div>
 
         <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-            <div class="w-24 h-24 mb-4 relative group">
-                
-                <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                <img src="/static/images/organising/sagnik_pal.png" 
-                    alt="Dr. Sagnik Pal" 
-                    
-                    class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-            </div>
             <h4 class="font-headline font-extrabold text-[17px] text-on-surface leading-tight text-center mb-1">Dr. Sagnik Pal</h4>
             <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
         </div>
@@ -1081,68 +940,26 @@
             <h4 class="font-headline text-xl font-bold mb-8 text-primary"><span class="gradient-text">The Website is Developed and Maintained by</span></h4>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-                    <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    <img src="/static/images/organising/aashika_jaiswal.png" 
-                        alt="Aashika Jaiswal" 
-     
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-                    </div>
                     <h4 class="font-headline font-extrabold text-xl text-on-surface text-center mb-1">Aashika Jaiswal</h4>
                     <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-                    <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    <img src="/static/images/organising/ankit_saha.png" 
-                        alt="Dr. Rajsekhar Panua" 
-     
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-                    </div>
                     <h4 class="font-headline font-extrabold text-xl text-on-surface text-center mb-1">Ankit Saha</h4>
                     <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-                    <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    <img src="/static/images/organising/kalyan_sai_uddagiri.png" 
-                        alt="Kalyan Sai Uddagiri" 
-     
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-                    </div>
                     <h4 class="font-headline font-extrabold text-xl text-on-surface text-center mb-1">Kalyan Sai Uddagiri</h4>
                     <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-                    <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    <img src="/static/images/organising/somraj_deb.jpeg" 
-                        alt="Somraj Deb" 
-     
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-                    </div>
                     <h4 class="font-headline font-extrabold text-xl text-on-surface text-center mb-1">Somraj Deb</h4>
                     <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-                    <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    <img src="/static/images/organising/sneha_deb.png" 
-                        alt="Sneha Deb" 
-     
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-                    </div>
                     <h4 class="font-headline font-extrabold text-xl text-on-surface text-center mb-1">Sneha Deb</h4>
                     <p class="text-[15px] text-primary font-semibold text-center">Mechanical Engineering Department, NIT Agartala</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
-                    <div class="w-24 h-24 mb-4 relative group">
-                    <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
-                    <img src="/static/images/organising/prince_rawat.png" 
-                        alt="Pirnce Rawat" 
-     
-                        class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md">
-                    </div>
                     <h4 class="font-headline font-extrabold text-xl text-on-surface text-center mb-1">Prince Rawat</h4>
                     <p class="text-[15px] text-primary font-semibold text-center">Mathematics Department, NIT Agartala</p>
                 </div>
@@ -1352,7 +1169,6 @@
     </div>
 </footer>
 
-<script src="/static/js/theme.js"></script>
 <script src="static/js/home.js"></script>
 <script>
     (function () {
