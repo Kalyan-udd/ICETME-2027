@@ -3,47 +3,65 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Registration | ICETME–2027</title>
+    <title>Registration & Submission | ICETME–2027</title>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                  "primary": "#003ec7",
-                  "primary-container": "#0052ff",
-                  "on-primary": "#ffffff",
-                  "on-primary-container": "#dfe3ff",
-                  "primary-fixed": "#dde1ff",
-                  "on-primary-fixed": "#001452",
-                  "surface": "#f7f9fb",
-                  "on-surface": "#191c1e",
-                  "surface-variant": "#e0e3e5",
-                  "on-surface-variant": "#434656",
-                  "outline": "#737688",
-                  "outline-variant": "#c3c5d9",
-                  "surface-container-lowest": "#ffffff",
-                  "surface-container-low": "#f2f4f6",
-                  "surface-container": "#eceef0",
-                  "surface-container-high": "#e6e8ea",
-                  "background": "#f7f9fb",
-                  "on-background": "#191c1e",
-              },
-              fontFamily: {
-                  "headline": ["Space Grotesk", "sans-serif"],
-                  "body": ["Inter", "sans-serif"]
-              }
-            }
-          }
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #003ec7;
+            --color-primary-container: #0052ff;
+            --color-on-primary: #ffffff;
+            --color-on-primary-container: #dfe3ff;
+            --color-primary-fixed: #dde1ff;
+            --color-on-primary-fixed: #001452;
+            --color-secondary: #515f74;
+            --color-secondary-container: #d5e3fc;
+            --color-on-secondary: #ffffff;
+            --color-on-secondary-container: #57657a;
+            --color-tertiary: #005569;
+            --color-tertiary-container: #006f89;
+            --color-on-tertiary: #ffffff;
+            --color-on-tertiary-container: #bcecff;
+            --color-background: #f7f9fb;
+            --color-on-background: #191c1e;
+            --color-surface: #f7f9fb;
+            --color-on-surface: #191c1e;
+            --color-surface-variant: #e0e3e5;
+            --color-on-surface-variant: #434656;
+            --color-outline: #737688;
+            --color-outline-variant: #c3c5d9;
+            --color-surface-container-lowest: #ffffff;
+            --color-surface-container-low: #f2f4f6;
+            --color-surface-container: #eceef0;
+            --color-surface-container-high: #e6e8ea;
+            --font-headline: "Space Grotesk", sans-serif;
+            --font-body: "Inter", sans-serif;
+            --animate-blob: blob 7s infinite;
+            --animate-float: float 6s ease-in-out infinite;
+            --animate-fade-in-up: fadeInUp 1s ease-out forwards;
+            --animate-bounce-slow: bounce 3s infinite;
         }
-    </script>
-    <link rel="stylesheet" href="/static/css/home.css">
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link rel="stylesheet" href="/static/css/theme.css">
+    <link rel="stylesheet" href="/static/css/about.css">
 
     <style>
         #nav-wrapper { position: relative; }
@@ -84,18 +102,27 @@
             class="glass-card rounded-full flex justify-between items-center px-6 sm:px-8 py-4 transition-all duration-300">
 
             <a href="{{url_for('home')}}">
-                <div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
+                <div
+                    class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
                     <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
-                    ICETME–2027
+                    ICETME-2027
                 </div>
             </a>
 
             <div class="hidden lg:flex gap-8">
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('home')}}">Home</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('about')}}">About</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('travel')}}">Travel</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="{{url_for('register')}}">Registration</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
+                    href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary"
+                    href="{{url_for('register')}}">Registration</a>
             </div>
+
+            <button id="dark-mode-toggle" class="hidden lg:flex items-center justify-center w-10 h-10 rounded-full glass-card border border-outline-variant/20 text-primary hover:text-primary transition-all duration-300 focus:outline-none group" aria-label="Toggle dark mode">
+                <span id="dark-mode-icon" class="material-symbols-outlined text-xl transition-transform duration-300 group-hover:rotate-15">light_mode</span>
+            </button>
 
             <button id="hamburger-btn"
                 class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full text-primary hover:bg-primary/10 transition-colors focus:outline-none"
@@ -106,10 +133,14 @@
 
         <div id="mobile-menu" class="lg:hidden" role="navigation" aria-label="Mobile navigation">
             <div class="flex flex-col gap-1 px-5 py-4">
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5" href="{{url_for('home')}}">Home</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5" href="{{url_for('about')}}">About</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5" href="{{url_for('travel')}}">Travel</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5" href="{{url_for('register')}}">Registration</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
+                    href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5"
+                    href="{{url_for('register')}}">Registration</a>
             </div>
         </div>
 
