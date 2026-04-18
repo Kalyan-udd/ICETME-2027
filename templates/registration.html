@@ -3,67 +3,48 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Registration & Submission | ICETME–2027</title>
+    <title>Registration | ICETME–2027</title>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-        @theme {
-            --color-primary: #003ec7;
-            --color-primary-container: #0052ff;
-            --color-on-primary: #ffffff;
-            --color-on-primary-container: #dfe3ff;
-            --color-primary-fixed: #dde1ff;
-            --color-on-primary-fixed: #001452;
-            --color-secondary: #515f74;
-            --color-secondary-container: #d5e3fc;
-            --color-on-secondary: #ffffff;
-            --color-on-secondary-container: #57657a;
-            --color-tertiary: #005569;
-            --color-tertiary-container: #006f89;
-            --color-on-tertiary: #ffffff;
-            --color-on-tertiary-container: #bcecff;
-            --color-background: #f7f9fb;
-            --color-on-background: #191c1e;
-            --color-surface: #f7f9fb;
-            --color-on-surface: #191c1e;
-            --color-surface-variant: #e0e3e5;
-            --color-on-surface-variant: #434656;
-            --color-outline: #737688;
-            --color-outline-variant: #c3c5d9;
-            --color-surface-container-lowest: #ffffff;
-            --color-surface-container-low: #f2f4f6;
-            --color-surface-container: #eceef0;
-            --color-surface-container-high: #e6e8ea;
-            --font-headline: "Space Grotesk", sans-serif;
-            --font-body: "Inter", sans-serif;
-            --animate-blob: blob 7s infinite;
-            --animate-float: float 6s ease-in-out infinite;
-            --animate-fade-in-up: fadeInUp 1s ease-out forwards;
-            --animate-bounce-slow: bounce 3s infinite;
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                  "primary": "#003ec7",
+                  "primary-container": "#0052ff",
+                  "on-primary": "#ffffff",
+                  "on-primary-container": "#dfe3ff",
+                  "primary-fixed": "#dde1ff",
+                  "on-primary-fixed": "#001452",
+                  "surface": "#f7f9fb",
+                  "on-surface": "#191c1e",
+                  "surface-variant": "#e0e3e5",
+                  "on-surface-variant": "#434656",
+                  "outline": "#737688",
+                  "outline-variant": "#c3c5d9",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-container-low": "#f2f4f6",
+                  "surface-container": "#eceef0",
+                  "surface-container-high": "#e6e8ea",
+                  "background": "#f7f9fb",
+                  "on-background": "#191c1e",
+              },
+              fontFamily: {
+                  "headline": ["Space Grotesk", "sans-serif"],
+                  "body": ["Inter", "sans-serif"]
+              }
+            }
+          }
         }
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-    <link rel="stylesheet" href="/static/css/theme.css">
-    <link rel="stylesheet" href="/static/css/about.css">
+    </script>
+    <link rel="stylesheet" href="/static/css/home.css">
 
-    <!-- HAMBURGER MENU STYLES -->
     <style>
         #nav-wrapper { position: relative; }
 
@@ -97,39 +78,25 @@
 
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
-    <!-- NAV WRAPPER: gives #mobile-menu an absolute positioning anchor -->
     <div id="nav-wrapper" class="sticky top-6 z-50 max-w-7xl mx-auto w-[95%]">
 
-        <!-- Pill nav bar -->
         <nav id="main-nav"
             class="glass-card rounded-full flex justify-between items-center px-6 sm:px-8 py-4 transition-all duration-300">
 
             <a href="{{url_for('home')}}">
-                <div
-                    class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
+                <div class="text-2xl font-extrabold tracking-tighter text-primary font-headline flex items-center gap-2">
                     <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
-                    ICETME-2027
+                    ICETME–2027
                 </div>
             </a>
 
-            <!-- Desktop links -->
             <div class="hidden lg:flex gap-8">
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
-                    href="{{url_for('home')}}">Home</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
-                    href="{{url_for('about')}}">About</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
-                    href="{{url_for('travel')}}">Travel</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary"
-                    href="{{url_for('register')}}">Registration</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors" href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary border-b-2 border-primary" href="{{url_for('register')}}">Registration</a>
             </div>
 
-            <!-- Dark Mode Toggle -->
-            <button id="dark-mode-toggle" class="hidden lg:flex items-center justify-center w-10 h-10 rounded-full glass-card border border-outline-variant/20 text-primary hover:text-primary transition-all duration-300 focus:outline-none group" aria-label="Toggle dark mode">
-                <span id="dark-mode-icon" class="material-symbols-outlined text-xl transition-transform duration-300 group-hover:rotate-15">light_mode</span>
-            </button>
-
-            <!-- Hamburger button -->
             <button id="hamburger-btn"
                 class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full text-primary hover:bg-primary/10 transition-colors focus:outline-none"
                 aria-label="Toggle navigation menu" aria-expanded="false">
@@ -137,17 +104,12 @@
             </button>
         </nav>
 
-        <!-- Mobile dropdown: absolutely positioned BELOW the pill, not inside it -->
         <div id="mobile-menu" class="lg:hidden" role="navigation" aria-label="Mobile navigation">
             <div class="flex flex-col gap-1 px-5 py-4">
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
-                    href="{{url_for('home')}}">Home</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
-                    href="{{url_for('about')}}">About</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5"
-                    href="{{url_for('travel')}}">Travel</a>
-                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5"
-                    href="{{url_for('register')}}">Registration</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5" href="{{url_for('home')}}">Home</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5" href="{{url_for('about')}}">About</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors py-3 px-3 rounded-xl hover:bg-primary/5" href="{{url_for('travel')}}">Travel</a>
+                <a class="nav-link font-headline tracking-tight text-sm font-bold uppercase text-primary py-3 px-3 rounded-xl bg-primary/5" href="{{url_for('register')}}">Registration</a>
             </div>
         </div>
 
@@ -214,6 +176,12 @@
         </div>
     </section>
 
+    <div class="text-center mb-16 reveal-up">
+        <p class="text-xl text-on-surface-variant max-w-3xl mx-auto leading-relaxed font-medium">
+            Please follow the <strong class="text-primary">three-step process</strong> below to successfully submit your manuscript through CMT, complete your fee payment, and finalize your registration for the conference.
+        </p>
+    </div>
+
     <div class="max-w-5xl mx-auto relative mb-24">
         <div class="hidden md:block absolute left-12 top-24 bottom-24 w-1 bg-gradient-to-b from-primary/30 to-transparent rounded-full z-0"></div>
 
@@ -233,6 +201,22 @@
             </div>
         </div>
 
+        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start mb-24 reveal-up">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[#0052ff] to-[#001452] flex items-center justify-center text-white shadow-xl shadow-[#0052ff]/20 shrink-0 border-4 border-background">
+                <span class="material-symbols-outlined text-4xl">payments</span>
+            </div>
+            <div class="bg-surface-container-lowest p-10 rounded-[2.5rem] shadow-sm border border-outline-variant/30 card-hover w-full">
+                <div class="text-sm font-bold tracking-widest uppercase text-primary mb-2">Step 2</div>
+                <h3 class="font-headline text-3xl font-bold text-on-background mb-4">Fee Payment</h3>
+                <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                    Upon receiving your paper acceptance confirmation, please proceed to pay the applicable registration fee based on your category listed above. Be sure to save your <strong>Transaction ID</strong> and payment receipt, as you will need them for the final step.
+                </p>
+                <button class="px-8 py-4 bg-surface-container-high text-on-surface-variant rounded-full font-headline font-bold text-sm cursor-not-allowed flex items-center gap-3 opacity-80 border border-outline-variant/30">
+                    <span class="material-symbols-outlined text-lg">lock_clock</span> Payment Link Coming Soon
+                </button>
+            </div>
+        </div>
+
         <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start reveal-up">
             <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[#001452] to-[#003ec7] flex items-center justify-center text-white shadow-xl shadow-[#001452]/20 shrink-0 border-4 border-background">
                 <span class="material-symbols-outlined text-4xl">fact_check</span>
@@ -240,10 +224,10 @@
             <div class="bg-surface-container-lowest p-10 rounded-[2.5rem] shadow-lg border border-primary/20 card-hover w-full relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-                <div class="text-sm font-bold tracking-widest uppercase text-primary mb-2">Step 2</div>
+                <div class="text-sm font-bold tracking-widest uppercase text-primary mb-2">Step 3</div>
                 <h3 class="font-headline text-3xl font-bold text-on-background mb-4">Post-Acceptance Registration</h3>
                 <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
-                    <strong>After your paper has been officially accepted</strong>, attendees must complete their registration and finalize their participation by paying the fee and filling out the required Form.
+                    <strong>After your payment is complete</strong>, attendees must finalize their participation by filling out the required Registration Form.
                 </p>
                 
                 <div class="bg-surface p-8 rounded-3xl border border-outline-variant/20 mb-8">
@@ -264,7 +248,7 @@
                 <div class="flex justify-center pt-10 border-t border-outline-variant/10 reveal-up">
             <button class="btn-shine inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-4 sm:py-5 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-headline font-bold text-base sm:text-lg shadow-[0_0_20px_rgba(0,62,199,0.3)] hover:shadow-[0_0_30px_rgba(0,62,199,0.5)] hover:-translate-y-1 transition-all duration-300 cursor-not-allowed opacity-90">
                 <span class="material-symbols-outlined animate-pulse">lock_clock</span>
-                Registration Link Coming Soon
+                Registration Form Coming Soon
             </button>
         </div>
             </div>
