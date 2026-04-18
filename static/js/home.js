@@ -86,6 +86,7 @@
             { id: '#about', selector: '#about' },
             { id: '#dates', selector: '#dates' },
             { id: '#papers', selector: '#papers' },
+            { id: '#rewards', selector: '#rewards' },
             { id: '#advisory', selector: '#advisory' },
             { id: '#committee', selector: '#committee' },
             { id: '#contact', selector: '#contact' }
@@ -326,6 +327,7 @@
         '#sponsor',
         '#speakers',
         '#advisory',
+        '#rewards',
         '#committee'
     ];
 
