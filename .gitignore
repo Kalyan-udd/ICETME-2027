@@ -205,7 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-
-.python-version
-.toml
-.lock
+# Custom Project Rules
+scratch/
+# .python-version  # Uncomment if you want to keep version local only
