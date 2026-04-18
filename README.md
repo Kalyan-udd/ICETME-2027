@@ -7,3 +7,14 @@ We are pleased to inform you that the Department of Mechanical Engineering at th
 Considering your distinguished contributions to the field and your esteemed academic standing, we would be honored to have your kind consent to serve as a member of the Advisory Board for this conference. Your guidance and association will greatly enrich the technical quality and global outreach of the event.
 
 We sincerely hope that you will accept this invitation and support us in making ICETME–2027 a successful international platform for knowledge exchange and collaboration.
+
+
+For developers follow these two steps....
+
+for developers using pip command to manage packages you need to install uv package manager to ensure you have the same environment in your pcs
+
+command one: pip install uv
+
+to sync all the requirements mentioned in uv.lock
+
+command two: uv sync

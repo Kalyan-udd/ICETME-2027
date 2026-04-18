@@ -12,40 +12,9 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#003ec7",
-                        "primary-container": "#0052ff",
-                        "on-primary": "#ffffff",
-                        "on-primary-container": "#dfe3ff",
-                        "primary-fixed": "#dde1ff",
-                        "on-primary-fixed": "#001452",
-                        "surface": "#f7f9fb",
-                        "on-surface": "#191c1e",
-                        "surface-variant": "#e0e3e5",
-                        "on-surface-variant": "#434656",
-                        "outline": "#737688",
-                        "outline-variant": "#c3c5d9",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-low": "#f2f4f6",
-                        "surface-container": "#eceef0",
-                        "surface-container-high": "#e6e8ea",
-                        "background": "#f7f9fb",
-                        "on-background": "#191c1e",
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk", "sans-serif"],
-                        "body": ["Inter", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
+    
+    
+    <link rel="stylesheet" href="/static/css/theme.css">
     <link rel="stylesheet" href="/static/css/about.css">
 
     <!-- ── HAMBURGER MENU STYLES ── -->
@@ -91,6 +60,57 @@
 
         /* Nav pill stays pill-shaped always – no overrides needed */
     </style>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+    @theme {
+        --color-primary: #003ec7;
+        --color-primary-container: #0052ff;
+        --color-on-primary: #ffffff;
+        --color-on-primary-container: #dfe3ff;
+        --color-primary-fixed: #dde1ff;
+        --color-on-primary-fixed: #001452;
+        --color-secondary: #515f74;
+        --color-secondary-container: #d5e3fc;
+        --color-on-secondary: #ffffff;
+        --color-on-secondary-container: #57657a;
+        --color-tertiary: #005569;
+        --color-tertiary-container: #006f89;
+        --color-on-tertiary: #ffffff;
+        --color-on-tertiary-container: #bcecff;
+        --color-background: #f7f9fb;
+        --color-on-background: #191c1e;
+        --color-surface: #f7f9fb;
+        --color-on-surface: #191c1e;
+        --color-surface-variant: #e0e3e5;
+        --color-on-surface-variant: #434656;
+        --color-outline: #737688;
+        --color-outline-variant: #c3c5d9;
+        --color-surface-container-lowest: #ffffff;
+        --color-surface-container-low: #f2f4f6;
+        --color-surface-container: #eceef0;
+        --color-surface-container-high: #e6e8ea;
+        --font-headline: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --animate-blob: blob 7s infinite;
+        --animate-float: float 6s ease-in-out infinite;
+        --animate-fade-in-up: fadeInUp 1s ease-out forwards;
+        --animate-bounce-slow: bounce 3s infinite;
+    }
+    @keyframes blob {
+        0% { transform: translate(0px, 0px) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+        100% { transform: translate(0px, 0px) scale(1); }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+</style>
 </head>
 
 <body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -121,6 +141,11 @@
                 <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase text-on-background hover:text-primary transition-colors"
                     href="{{url_for('register')}}">Registration</a>
             </div>
+
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle" class="hidden lg:flex items-center justify-center w-10 h-10 rounded-full glass-card border border-outline-variant/20 text-primary hover:text-primary transition-all duration-300 focus:outline-none group" aria-label="Toggle dark mode">
+                <span id="dark-mode-icon" class="material-symbols-outlined text-xl transition-transform duration-300 group-hover:rotate-15">light_mode</span>
+            </button>
 
             <!-- Hamburger button -->
             <button id="hamburger-btn"
@@ -172,31 +197,15 @@
                         <div id="tripura-slideshow" class="w-full h-full relative z-10">
                             <img src="/static/images/tripura/tripura.jpeg" alt="Ujjayanta Palace Day"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
-                            <img src="/static/images/tripura/tripura3.jpeg" alt="Heritage Park Gates"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura2.jpeg" alt="Agartala tripura Interior"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura5.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura6.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura7.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura8.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura9.jpeg" alt="Agartala tripura Tarmac"
+                            <img src="/static/images/tripura/tripura5.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura10.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura11.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura12.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura13.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura14.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura15.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura16.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
@@ -206,11 +215,7 @@
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura19.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura20.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura21.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura22.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura23.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
@@ -224,8 +229,6 @@
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura28.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura29.jpeg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura30.jpeg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura31.jpg" alt="Agartala tripura Tarmac"
@@ -234,11 +237,7 @@
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura33.jpg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura34.jpg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura35.jpg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura36.jpg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura37.jpg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
@@ -252,11 +251,7 @@
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura42.jpg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura43.jpg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/tripura/tripura44.jpg" alt="Agartala tripura Tarmac"
-                                class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/tripura/tripura45.jpg" alt="Agartala tripura Tarmac"
                                 class="tripura-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                         </div>
                     </div>
@@ -445,8 +440,6 @@
                             <img src="/static/images/nita/campus_4.jpeg" alt="NITA Fountain Red"
                                 class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/nita/campus_5.png" alt="NITA Building 1"
-                                class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
-                            <img src="/static/images/nita/campus_6.jpeg" alt="NITA Building 2"
                                 class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
                             <img src="/static/images/nita/campus_7.jpeg" alt="NITA Building 2"
                                 class="nita-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
@@ -640,6 +633,7 @@
         </div>
     </main>
 
+    <script src="/static/js/theme.js"></script>
     <script src="/static/js/about.js"></script>
 
     <!-- ── HAMBURGER MENU SCRIPT ── -->
