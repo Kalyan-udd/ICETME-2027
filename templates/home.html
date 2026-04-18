@@ -97,10 +97,10 @@
     <div id="desktop-nav-links" class="hidden lg:flex gap-8">
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('about')}}">About</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('travel')}}">Travel</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#advisory">Advisory Board</a>
-        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#dates">Important Dates</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('importantdates')}}">TimeTable</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#papers">Call for Papers</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#committee">Committee</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#advisory">Advisory Board</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="#contact">Contact</a>
         <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('register')}}">Registration</a>
     </div>
@@ -124,7 +124,7 @@
         <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="{{url_for('about')}}">About</a>
         <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="{{url_for('travel')}}">Travel</a>
         <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#advisory">Advisory Board</a>
-        <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#dates">Important Dates</a>
+        <a class="nav-link font-headline tracking-tight text-sm font-semibold uppercase transition-colors" href="{{url_for('importantdates')}}">TimeTable</a>
         <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#papers">Call for Papers</a>
         <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#committee">Committee</a>
         <a class="mobile-menu-item font-headline tracking-tight text-sm font-semibold uppercase" href="#contact">Contact</a>
@@ -374,11 +374,11 @@
             <h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-extrabold text-on-background tracking-tight mb-6">Distinguished <span class="gradient-text">Speakers</span></h2>
             <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto">Hear from leading experts and academicians across the globe.</p>
         </div>
-        <!-- Keynote Speakers -->
+        <!-- Plenary Speakers -->
         <div class="mb-24">
             <div class="flex items-center gap-4 mb-12 flex-wrap">
-                <span class="material-symbols-outlined text-4xl text-primary">mic</span>
-                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Keynote Speakers</h3>
+                <span class="material-symbols-outlined text-4xl text-primary">campaign</span>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Plenary Speakers</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -468,11 +468,12 @@
                 </div>
             </div>
         </div>
-        <!-- Plenary Speakers -->
+        
+        <!-- Keynote Speakers -->
         <div class="mb-24">
             <div class="flex items-center gap-4 mb-12 flex-wrap">
-                <span class="material-symbols-outlined text-4xl text-primary">campaign</span>
-                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Plenary Speakers</h3>
+                <span class="material-symbols-outlined text-4xl text-primary">mic</span>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background">Keynote Speakers</h3>
                 <div class="h-px bg-outline-variant/30 flex-grow ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 speakers-card-grid">
@@ -597,13 +598,13 @@
                     <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
                     
                     <img 
-                        src="/static/images/national_advisory/" 
-                        alt="Dr. S. P. Agarwal" 
+                        src="/static/images/national_advisory/achintya" 
+                        alt="Dr. Achintya Mukhopadyay" 
                         class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
                         onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
                     >
                     </div>
-                    <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Achinto Mukhopadhay</h4>
+                    <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Achintya Mukhopadhyay</h4>
                     <p class="text-sm text-primary font-semibold">Jadavpur University</p>
                 </div>
                 <div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20 shadow-sm card-hover flex flex-col items-center text-center">
@@ -625,7 +626,7 @@
                     <div class="absolute inset-0 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors"></div>
                     
                     <img 
-                        src="/static/images/national_advisory/" 
+                        src="/static/images/national_advisory/anirban_mitra.jpeg" 
                         alt="Dr. S. P. Agarwal" 
                         class="relative w-full h-full object-cover rounded-full border-2 border-primary/20 shadow-md"
                         onerror="this.onerror=null; this.src='www.ui-avatars.com/api/?name=S+P+Agarwal&background=random';"
@@ -815,46 +816,7 @@
                     >
                     </div>
                     <h4 class="font-headline font-bold text-lg text-on-surface mb-2">Prof. Swapan Bhoumik</h4>
-                    <p class="text-sm text-primary font-semibold">National Institute of Technology</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Publication -->
-<section id="publication" class="py-20 md:py-32 bg-surface-container-low relative">
-    <div class="absolute left-0 top-0 w-96 h-96 bg-tertiary/5 rounded-full blur-3xl -z-10"></div>
-    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
-        <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-14 md:mb-20 text-on-background tracking-tight">Publication</h2>
-        
-        <!-- Card Container -->
-        <div class="max-w-4xl mx-auto">
-            <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-12 md:p-16 rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center relative overflow-hidden">
-                <!-- Decorative elements -->
-                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
-                <div class="absolute bottom-0 left-0 w-40 h-40 bg-tertiary/5 rounded-full blur-2xl"></div>
-                
-                <!-- Content -->
-                <div class="relative z-10">
-                    <!-- Icon -->
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary/10 to-tertiary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-inner">
-                        <span class="material-symbols-outlined text-4xl text-primary">menu_book</span>
-                    </div>
-                    
-                    <!-- Title -->
-                    <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background mb-6">Conference Publications</h3>
-                    
-                    <!-- Description -->
-                    <p class="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-                        Publication details will be announced soon. Conference proceedings will be available through renowned academic publishers and journals.
-                    </p>
-                    
-                    <!-- Button -->
-                    <button class="group bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-headline font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center gap-2 hover:scale-[1.05]">
-                        <span>Coming Soon</span>
-                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </button>
+                    <p class="text-sm text-primary font-semibold">National Institute of Technology Agartala</p>
                 </div>
             </div>
         </div>
@@ -874,6 +836,7 @@
                 </div>
                 <h3 class="font-headline font-bold text-xl mb-3 text-on-background">Paper Submission <br>Deadline</h3>
                 <p class="text-primary font-bold text-lg mb-2">TBA</p>
+                <p class="text-black font-extrabold text-2xl mb-2">Dec 15, 2026</p>
                 <p class="text-sm text-on-surface-variant line-clamp-2">Final date for submitting your research papers and abstracts.</p>
             </div>
             
@@ -883,6 +846,7 @@
                 </div>
                 <h3 class="font-headline font-bold text-xl mb-3 text-on-background">Notification of <br>Acceptance</h3>
                 <p class="text-primary font-bold text-lg mb-2">TBA</p>
+                <p class="text-sm font-extrabold text-2xl mb-2"></p>
                 <p class="text-sm text-on-surface-variant line-clamp-2">Authors will be notified regarding paper acceptance details.</p>
             </div>
             
@@ -892,6 +856,7 @@
                 </div>
                 <h3 class="font-headline font-bold text-xl mb-3 text-on-background">Camera Ready <br>Submission</h3>
                 <p class="text-primary font-bold text-lg mb-2">TBA</p>
+                <p class="text-black font-extrabold text-2xl mb-2"></p>
                 <p class="text-sm text-on-surface-variant line-clamp-2">Final revised manuscript submission per reviewer feedback.</p>
             </div>
             
@@ -961,92 +926,7 @@
                     </p>
                 </div>
                 <div class="absolute -right-6 -bottom-6 opacity-[0.03] group-hover:opacity-10 group-hover:scale-125 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Rewards Section -->
-<section id="rewards" class="py-20 md:py-32 bg-surface-container-low">
-    <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
-        <div class="text-center mb-20">
-            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-6">
-                Rewards
-            </h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-primary to-tertiary mx-auto rounded-full mb-6"></div>
-        </div>
-        
-        <!-- AWARDS Section -->
-        <div class="text-center mb-16">
-            <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-background mb-8">AWARDS</h3>
-        </div>
-        
-        <!-- Block 1: Best Paper Awards -->
-        <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-8 md:p-12 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 mb-12">
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <span class="material-symbols-outlined text-3xl text-primary">article</span>
-                </div>
-                <h4 class="font-headline text-xl md:text-2xl font-bold text-on-background mb-4">Best Paper Awards in all verticals:</h4>
-            </div>
-            <ul class="space-y-4 text-on-surface-variant text-center">
-                <li class="text-lg font-medium">Materials & Manufacturing</li>
-                <li class="text-lg font-medium">Structures, Mechanics, Design & Control</li>
-                <li class="text-lg font-medium">Propulsion, Aerodynamics, Fluid & Thermal</li>
-            </ul>
-        </div>
-        
-        <!-- Block 2: Best Poster Award -->
-        <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-8 md:p-12 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 mb-12">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-tertiary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <span class="material-symbols-outlined text-3xl text-tertiary">present_to_all</span>
-                </div>
-                <h4 class="font-headline text-xl md:text-2xl font-bold text-on-background mb-4">Best Poster award</h4>
-                <p class="text-on-surface-variant text-lg">in all aforementioned verticals</p>
-            </div>
-        </div>
-        
-        <!-- Block 3: Best Session Award -->
-        <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-8 md:p-12 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 mb-12">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <span class="material-symbols-outlined text-3xl text-primary">groups</span>
-                </div>
-                <h4 class="font-headline text-xl md:text-2xl font-bold text-on-background mb-4">Best Session award</h4>
-                <p class="text-on-surface-variant text-lg">in each session</p>
-            </div>
-        </div>
-        
-        <!-- Block 4: Young Researcher Award -->
-        <div class="glass-card bg-gradient-to-br from-white/90 to-surface-container-highest/80 border border-white/60 p-8 md:p-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-            <div class="text-center mb-8">
-                <div class="w-20 h-20 bg-gradient-to-br from-primary/10 to-tertiary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                    <span class="material-symbols-outlined text-4xl text-primary">workspace_premium</span>
-                </div>
-                <h4 class="font-headline text-2xl md:text-3xl font-bold text-on-background mb-6">Young Researcher Award:</h4>
-            </div>
-            
-            <div class="space-y-6 text-on-surface-variant">
-                <p class="text-lg leading-relaxed">Three awards will be presented to researchers under 35 for outstanding scientific work.</p>
-                
-                <div class="space-y-4">
-                    <h5 class="font-headline text-lg font-bold text-on-background">Eligibility Requirements:</h5>
-                    <ul class="space-y-3 text-left max-w-3xl mx-auto">
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
-                            <span>Eligible papers must have no more than three authors.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
-                            <span>Only papers presented in person by the first/corresponding author during the award session will be considered.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-primary mt-1 flex-shrink-0">check_circle</span>
-                            <span>Awardees will receive a medal, certificate, and complimentary registration for the next edition.</span>
-                        </li>
-                    </ul>
+                    <span class="material-symbols-outlined text-[12rem]">mode_fan</span>
                 </div>
             </div>
         </div>
@@ -1494,6 +1374,9 @@
                     <h4 class="font-headline font-bold text-[15px] text-on-surface">Prof. Kaushik Pal</h4><p class="text-[13px] text-primary">IIT Roorkee</p>
                 </div>
                 <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/10 shadow-sm card-hover">
+                    <h4 class="font-headline font-bold text-[15px] text-on-surface">Dr. Nishant Verma IFS</h4><p class="text-[13px] text-primary">Joint Secretary</p><p class="text-[13px] text-primary">Anusandhan National Research Foundation</p>
+                </div>
+                <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/10 shadow-sm card-hover">
                     <h4 class="font-headline font-bold text-[15px] text-on-surface">Prof. Pankaj Biswas</h4><p class="text-[13px] text-primary">IIT Guwahati</p>
                 </div>
                 <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/10 shadow-sm card-hover">
@@ -1528,6 +1411,9 @@
                 </div>
                 <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/10 shadow-sm card-hover">
                     <h4 class="font-headline font-bold text-[15px] text-on-surface">Prof. U.S. Dixit</h4><p class="text-[13px] text-primary">IIT Guwahati</p>
+                </div>
+                <div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/10 shadow-sm card-hover">
+                    <h4 class="font-headline font-bold text-[15px] text-on-surface">Dr. V. Narayanan</h4><p class="text-[13px] text-primary">Chairman</p><p class="text-[13px] text-primary">Indian Space Research Organization</p>
                 </div>
             </div>
         </div>

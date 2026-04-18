@@ -23,3 +23,7 @@ async def about(request: Request):
 @app.get("/travel")
 def travel(request: Request):
     return templates.TemplateResponse(request, 'travel.html')
+
+@app.get("/important_dates")
+async def importantdates(request: Request):
+    return templates.TemplateResponse(request, 'timetable.html')
