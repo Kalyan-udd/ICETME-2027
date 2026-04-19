@@ -153,6 +153,9 @@
     color: #434656;
     text-decoration: none;
     transition: background-color 0.18s ease, color 0.18s ease;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .mobile-menu-item:hover,
