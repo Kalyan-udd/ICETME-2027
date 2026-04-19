@@ -208,3 +208,4 @@ __marimo__/
 # Custom Project Rules
 scratch/
 # .python-version  # Uncomment if you want to keep version local only
+uv.lock
