@@ -1,20 +1,18 @@
 {
   "builds": [
     {
-      "src": "static/**",
+      "src": "public/**",
       "use": "@vercel/static"
     },
     {
       "src": "main.py",
-      "use": "@vercel/python",
-      "config": {
-        "includeFiles": ["templates/**"]
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "handle": "filesystem"
+      "src": "/static/(.*)",
+      "dest": "/public/static/$1"
     },
     {
       "src": "/(.*)",
