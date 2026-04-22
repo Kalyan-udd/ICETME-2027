@@ -11,7 +11,7 @@ We sincerely hope that you will accept this invitation and support us in making 
 
 For developers follow these two steps....
 
-for developers using pip command to manage packages you need to install uv package manager to ensure you have the same environment in your pcs
+for developers using pip command to manage packages i would recommend to install uv package manager to ensure you have the same environment in your pcs
 
 command one: pip install uv
 
